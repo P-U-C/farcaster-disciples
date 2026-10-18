@@ -1,8 +1,8 @@
-# The 938 — Farcaster Continuity Index
+# The Disciples
 
-A public, reproducible census of original [Farcaster OG](https://opensea.io/collection/farcaster-og-1) recipients who signed the [Network School Farcaster pledge](https://farcaster.xyz/~/network-school), with a live **HODL** or **SOLD** status for each original NFT.
+A public, reproducible ledger of original [Farcaster OG](https://opensea.io/collection/farcaster-og-1) recipients who signed the [Network School Farcaster pledge](https://farcaster.xyz/~/network-school), with a live **HODL** or **SOLD** status for each original NFT.
 
-**Live site:** https://continuity.permanentupperclass.com
+**Live site:** https://disciples.permanentupperclass.com
 
 ## What the badges mean
 

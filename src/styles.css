@@ -1273,7 +1273,7 @@ footer > a {
   .hero h1 {
     gap: 10px;
     margin: 58px 0 27px;
-    font-size: 88px;
+    font-size: 66px;
   }
 
   .hero h1 span {
@@ -1500,7 +1500,7 @@ footer > a {
 
 @media (max-width: 410px) {
   .hero h1 {
-    font-size: 76px;
+    font-size: 58px;
   }
 
   .dek {

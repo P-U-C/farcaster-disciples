@@ -17,7 +17,7 @@ import type { ContinuityIndex, OwnershipStatus, Person } from "./types";
 type StatusFilter = "ALL" | OwnershipStatus;
 type SortOrder = "OG_ASC" | "FID_ASC" | "NAME_ASC";
 
-const REPO = "https://github.com/P-U-C/farcaster-continuity";
+const REPO = "https://github.com/P-U-C/farcaster-disciples";
 const PLEDGE = "https://farcaster.xyz/~/network-school";
 
 const emptyIndex: ContinuityIndex = {
@@ -112,15 +112,15 @@ export function App() {
                 <span>FARCASTER × NETWORK STATE</span>
               </p>
               <h1 id="page-title">
-                <span>The</span> 938
+                <span>The</span> Disciples
               </h1>
               <p className="dek">
-                The original Farcaster cohort, traced forward to the people who signed the
-                Network School pledge.
+                From the original 938 Farcaster recipients: the people who signed the Network
+                School pledge, and whether they still hold.
               </p>
               <div className="hero-links">
                 <a className="primary-action" href="#census">
-                  Enter the census <ArrowDown size={17} />
+                  Meet the disciples <ArrowDown size={17} />
                 </a>
                 <a href="#method">
                   Verify the method <ArrowUpRight size={16} />
@@ -128,7 +128,7 @@ export function App() {
               </div>
             </div>
 
-            <div className="hero-sigil" aria-label="Farcaster and Network State continuity mark">
+            <div className="hero-sigil" aria-label="Farcaster and Network State disciples mark">
               <div className="sigil-stage">
                 <img className="farcaster-mark" src="/assets/farcaster.svg" alt="Farcaster" />
                 <span className="signal-spine" aria-hidden="true">
@@ -172,8 +172,8 @@ export function App() {
         <section className="census" id="census" aria-labelledby="census-title">
           <div className="section-intro">
             <div>
-              <p className="section-kicker">01 / CONTINUITY LEDGER</p>
-              <h2 id="census-title">Who carried it forward?</h2>
+              <p className="section-kicker">01 / DISCIPLE LEDGER</p>
+              <h2 id="census-title">Who answered the call?</h2>
             </div>
             <p>
               Every row links an original Zora mint recipient to a Farcaster FID and the
@@ -316,8 +316,8 @@ export function App() {
         <div className="footer-mark">
           <MergedMiniMark />
           <div>
-            <b>THE 938</b>
-            <span>A P-U-C public index</span>
+            <b>THE DISCIPLES</b>
+            <span>A P-U-C public ledger</span>
           </div>
         </div>
         <p>
@@ -338,11 +338,11 @@ export function App() {
 function SiteHeader({ generatedAt }: { generatedAt: string }) {
   return (
     <header className="site-header">
-      <a className="brand" href="#top" aria-label="The 938 home">
+      <a className="brand" href="#top" aria-label="The Disciples home">
         <MergedMiniMark />
         <span>
-          <b>THE 938</b>
-          <small>CONTINUITY INDEX</small>
+          <b>THE DISCIPLES</b>
+          <small>ONCHAIN LEDGER</small>
         </span>
       </a>
       <nav aria-label="Primary navigation">
@@ -480,7 +480,7 @@ function ProofDialog({ person, onClose }: { person: Person; onClose: () => void 
         onMouseDown={(event) => event.stopPropagation()}
       >
         <header>
-          <p>CONTINUITY PROOF / OG #{person.ogTokenId}</p>
+          <p>DISCIPLE PROOF / OG #{person.ogTokenId}</p>
           <button ref={closeRef} type="button" onClick={onClose} title="Close proof">
             <X size={20} />
           </button>
