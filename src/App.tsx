@@ -128,15 +128,13 @@ export function App() {
               </div>
             </div>
 
-            <div className="hero-sigil" aria-label="Farcaster and Network State disciples mark">
+            <div className="hero-sigil" aria-label="The Disciples cohort seal">
               <div className="sigil-stage">
-                <img className="farcaster-mark" src="/assets/farcaster.svg" alt="Farcaster" />
-                <span className="signal-spine" aria-hidden="true">
-                  <i />
-                  <i />
-                  <i />
+                <img src="/assets/disciples-mark.svg" alt="Three disciples gathered beneath a protocol arch" />
+                <span className="seal-index" aria-hidden="true">
+                  <b>III</b>
+                  <i>THE ONCHAIN COHORT</i>
                 </span>
-                <img className="network-mark" src="/assets/network-state.svg" alt="Network State" />
               </div>
               <p>
                 <span>ORIGIN</span>
@@ -321,8 +319,10 @@ export function App() {
           </div>
         </div>
         <p>
-          Farcaster mark: CC0. Network State mark: CC BY-SA 4.0, via{" "}
-          <a href="https://ns.com/about/" target="_blank" rel="noreferrer">ns.com</a>.
+          Disciples seal by P-U-C. Farcaster and Network State references are credited in{" "}
+          <a href={`${REPO}/blob/main/THIRD_PARTY_ASSETS.md`} target="_blank" rel="noreferrer">
+            the asset notes
+          </a>.
           Zoz artwork detail used by its owner.
         </p>
         <a href={REPO} target="_blank" rel="noreferrer" aria-label="View source on GitHub">
@@ -360,9 +360,7 @@ function SiteHeader({ generatedAt }: { generatedAt: string }) {
 function MergedMiniMark() {
   return (
     <span className="mini-mark" aria-hidden="true">
-      <img src="/assets/farcaster.svg" alt="" />
-      <i />
-      <img src="/assets/network-state.svg" alt="" />
+      <img src="/assets/disciples-mark.svg" alt="" />
     </span>
   );
 }

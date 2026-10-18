@@ -1,5 +1,7 @@
 # The Disciples
 
+<img src="public/assets/disciples-mark.svg" alt="The Disciples cohort seal" width="128">
+
 A public, reproducible ledger of original [Farcaster OG](https://opensea.io/collection/farcaster-og-1) recipients who signed the [Network School Farcaster pledge](https://farcaster.xyz/~/network-school), with a live **HODL** or **SOLD** status for each original NFT.
 
 **Live site:** https://disciples.permanentupperclass.com

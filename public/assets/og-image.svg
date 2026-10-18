@@ -2,10 +2,32 @@
   <rect width="1200" height="630" fill="#F3F0E8"/>
   <path d="M0 0h42v630H0z" fill="#855DCD"/>
   <path d="M42 575h1158v55H42z" fill="#171619"/>
+  <path d="M42 565h718v10H42z" fill="#B8F243"/>
   <text x="90" y="130" font-family="monospace" font-size="22" font-weight="700" fill="#65419F">FARCASTER x NETWORK STATE</text>
   <text x="84" y="365" font-family="Georgia,serif" font-size="150" fill="#171619">The Disciples</text>
   <text x="92" y="455" font-family="Georgia,serif" font-size="38" fill="#171619">938 origins. 207 confirmed commitments.</text>
-  <path d="M964 88h138v190H984v-87c-3-41-22-57-49-57s-46 19-49 57v87h-24V88h102Z" fill="#855DCD"/>
-  <path d="M927 71h7v246h-7z" fill="#B8F243" transform="rotate(9 930 194)"/>
-  <path d="M1041 296c46 0 76 9 112 4v151c-40 6-75-3-112 0V296Zm41 41v73h29v-73h-29Z" fill="#171619"/>
+  <text x="92" y="520" font-family="monospace" font-size="18" font-weight="700" fill="#171619">THE ONCHAIN COHORT / HODL OR SOLD</text>
+  <g transform="translate(930 100) scale(.8)">
+    <rect x="-18" y="-18" width="292" height="292" fill="#FFFDF6" stroke="#171619" stroke-width="3"/>
+    <rect x="-7" y="-7" width="270" height="270" fill="none" stroke="#855DCD" stroke-width="8"/>
+  <path d="M36 218V61H220V218H184V151C184 117.31 158.928 92 128 92C97.072 92 72 117.31 72 151V218H36Z" fill="#855DCD" stroke="#171619" stroke-width="6"/>
+  <path d="M51 77H205" stroke="#F3F0E8" stroke-width="5"/>
+  <path d="M72 42L181 27" stroke="#54CAD0" stroke-width="5" stroke-linecap="square"/>
+  <path d="M75 50L184 35" stroke="#171619" stroke-width="6" stroke-linecap="square"/>
+  <path d="M78 59L187 44" stroke="#F5D548" stroke-width="5" stroke-linecap="square"/>
+  <path d="M128 38V104" stroke="#171619" stroke-width="6"/>
+  <path d="M128 54C146 49 161 58 177 53V80C160 85 145 76 128 81V54Z" fill="#171619"/>
+  <path d="M143 59V76M134.5 67.5H151.5" stroke="#F3F0E8" stroke-width="5"/>
+  <path d="M56 220H200" stroke="#171619" stroke-width="6"/>
+  <path d="M88 198L91 151" stroke="#54CAD0" stroke-width="7"/>
+  <path d="M165 198L162 151" stroke="#F5D548" stroke-width="7"/>
+  <circle cx="91" cy="153" r="15" fill="#171619" stroke="#F3F0E8" stroke-width="5"/>
+  <path d="M62 218C64 186 74 169 91 169C108 169 118 186 120 218H62Z" fill="#171619" stroke="#F3F0E8" stroke-width="5"/>
+  <circle cx="165" cy="153" r="15" fill="#171619" stroke="#F3F0E8" stroke-width="5"/>
+  <path d="M136 218C138 186 148 169 165 169C182 169 192 186 194 218H136Z" fill="#171619" stroke="#F3F0E8" stroke-width="5"/>
+  <circle cx="128" cy="139" r="18" fill="#B8F243" stroke="#171619" stroke-width="6"/>
+  <path d="M94 218C97 177 108 157 128 157C148 157 159 177 162 218H94Z" fill="#B8F243" stroke="#171619" stroke-width="6"/>
+  <path d="M113 138C119 132 137 132 143 138C137 144 119 144 113 138Z" fill="#171619"/>
+  <circle cx="128" cy="138" r="3.5" fill="#F3F0E8"/>
+  </g>
 </svg>
