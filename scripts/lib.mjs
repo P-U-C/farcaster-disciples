@@ -1,4 +1,15 @@
+import { decodeEventLog, parseAbiItem } from "viem";
+
 export const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
+
+export const SEAPORT_CONTRACTS = new Set([
+  "0x0000000000000068f116a894984e2db1123eb395",
+  "0x00000000000000adc04c56bf30ac9d3c0aaf14dc",
+]);
+
+export const ORDER_FULFILLED_EVENT = parseAbiItem(
+  "event OrderFulfilled(bytes32 orderHash, address indexed offerer, address indexed zone, address recipient, (uint8 itemType, address token, uint256 identifier, uint256 amount)[] offer, (uint8 itemType, address token, uint256 identifier, uint256 amount, address recipient)[] consideration)",
+);
 
 export function replayOgTransfers(logs) {
   const ordered = [...logs].sort(
@@ -8,11 +19,16 @@ export function replayOgTransfers(logs) {
   );
   const original = new Map();
   const current = new Map();
+  const transferTransactions = new Map();
 
   for (const log of ordered) {
     const tokenId = Number(log.tokenId);
     if (log.from.toLowerCase() === ZERO_ADDRESS) {
       original.set(tokenId, log.to);
+    } else if (typeof log.transactionHash === "string") {
+      const hashes = transferTransactions.get(tokenId) ?? [];
+      if (hashes.at(-1) !== log.transactionHash) hashes.push(log.transactionHash);
+      transferTransactions.set(tokenId, hashes);
     }
     current.set(tokenId, log.to);
   }
@@ -26,8 +42,11 @@ export function replayOgTransfers(logs) {
         tokenId,
         mintWallet,
         currentOwner,
-        status:
-          currentOwner.toLowerCase() === mintWallet.toLowerCase() ? "HODL" : "SOLD",
+        mintWalletStatus:
+          currentOwner.toLowerCase() === mintWallet.toLowerCase()
+            ? "AT_MINT_WALLET"
+            : "MOVED_FROM_MINT_WALLET",
+        transferTransactions: transferTransactions.get(tokenId) ?? [],
       };
     });
 }
@@ -55,10 +74,61 @@ export function classifyAccountOwnership({
         : "external_wallet";
 
   return {
-    ownershipStatus: ownershipBasis === "external_wallet" ? "SOLD" : "HODL",
+    inAccount: ownershipBasis !== "external_wallet",
     ownershipBasis,
     accountWallets: [...byAddress.values()],
   };
+}
+
+export function findSeaportSaleEvidence(receipt, collectionAddress, tokenId) {
+  const collection = collectionAddress.toLowerCase();
+  const identifier = BigInt(tokenId);
+
+  for (const log of receipt.logs ?? []) {
+    if (!SEAPORT_CONTRACTS.has(log.address.toLowerCase())) continue;
+
+    try {
+      const decoded = decodeEventLog({
+        abi: [ORDER_FULFILLED_EVENT],
+        data: log.data,
+        topics: log.topics,
+      });
+      const { offer, consideration, orderHash } = decoded.args;
+      const ogInOffer = hasNft(offer, collection, identifier);
+      const ogInConsideration = hasNft(consideration, collection, identifier);
+      const paidForOffer = ogInOffer && hasPayment(consideration);
+      const paidForConsideration = ogInConsideration && hasPayment(offer);
+
+      if (paidForOffer || paidForConsideration) {
+        return {
+          marketplace: "Seaport",
+          protocol: "SEAPORT",
+          transactionHash: receipt.transactionHash,
+          contract: log.address,
+          orderHash,
+        };
+      }
+    } catch {
+      // Ignore unrelated or malformed logs, even if they share a topic.
+    }
+  }
+
+  return null;
+}
+
+function hasNft(items, collection, identifier) {
+  return items.some(
+    (item) =>
+      [2, 4].includes(Number(item.itemType)) &&
+      item.token.toLowerCase() === collection &&
+      BigInt(item.identifier) === identifier,
+  );
+}
+
+function hasPayment(items) {
+  return items.some(
+    (item) => [0, 1].includes(Number(item.itemType)) && BigInt(item.amount) > 0n,
+  );
 }
 
 export function mergeIdentityCandidate(existing, candidate) {

@@ -12,6 +12,7 @@ import { base, optimism, zora } from "viem/chains";
 import {
   classifyAccountOwnership,
   ethereumVerificationAddresses,
+  findSeaportSaleEvidence,
   mergeIdentityCandidate,
   parseProfile,
   replayOgTransfers,
@@ -167,8 +168,10 @@ for (const group of chunks(signedWithCustody, 50)) {
         currentOwner: getAddress(person.currentOwner),
         custodyAddress: person.custodyAddress,
         accountWallets: ownership.accountWallets.map((address) => getAddress(address)),
-        ownershipStatus: ownership.ownershipStatus,
+        ownershipStatus: ownership.inAccount ? "HODL" : "MOVED",
         ownershipBasis: ownership.ownershipBasis,
+        marketplaceEvidence: null,
+        transferTransactions: person.transferTransactions,
         matchedAddress: getAddress(person.matchedAddress),
         matchType: person.matchType,
         voteOwner: person.voteOwner,
@@ -185,12 +188,52 @@ for (const group of chunks(signedWithCustody, 50)) {
   people.push(...enriched);
 }
 
+const outsidePeople = people.filter((person) => person.ownershipStatus === "MOVED");
+const receiptHashes = [
+  ...new Set(outsidePeople.flatMap((person) => person.transferTransactions)),
+];
+console.log(
+  `Checking ${receiptHashes.length} transfer receipts for marketplace settlement...`,
+);
+const receiptsByHash = new Map();
+for (const group of chunks(receiptHashes, 40)) {
+  const receipts = await Promise.all(
+    group.map((hash) => zoraClient.getTransactionReceipt({ hash })),
+  );
+  receipts.forEach((receipt) => receiptsByHash.set(receipt.transactionHash, receipt));
+}
+
+for (const person of outsidePeople) {
+  for (const hash of person.transferTransactions) {
+    const receipt = receiptsByHash.get(hash);
+    const evidence = findSeaportSaleEvidence(
+      receipt,
+      CONTRACTS.og.address,
+      person.ogTokenId,
+    );
+    if (!evidence) continue;
+
+    person.ownershipStatus = "SOLD";
+    person.marketplaceEvidence = {
+      ...evidence,
+      proofUrl: `https://explorer.zora.energy/tx/${evidence.transactionHash}`,
+    };
+    break;
+  }
+}
+
+for (const person of people) delete person.transferTransactions;
 people.sort((a, b) => a.ogTokenId - b.ogTokenId);
-const atMintWallet = ogTokens.filter((token) => token.status === "HODL").length;
+
+const atMintWallet = ogTokens.filter(
+  (token) => token.mintWalletStatus === "AT_MINT_WALLET",
+).length;
 const signedHodl = people.filter((person) => person.ownershipStatus === "HODL").length;
+const signedSold = people.filter((person) => person.ownershipStatus === "SOLD").length;
+const signedMoved = people.filter((person) => person.ownershipStatus === "MOVED").length;
 
 const output = {
-  schemaVersion: 2,
+  schemaVersion: 3,
   generatedAt: new Date().toISOString(),
   meta: {
     ogSupply: ogTokens.length,
@@ -199,11 +242,12 @@ const output = {
     resolvedIdentities: candidates.length,
     signedCount: people.length,
     signedHodl,
-    signedSold: people.length - signedHodl,
+    signedSold,
+    signedMoved,
     identityScanMaxFid: identityCache.identityScanMaxFid,
     complete: false,
     note:
-      "HODL means the OG is held by the mint wallet, current FID custody wallet, or an active verified Ethereum wallet. Removed historical links can make the true overlap larger.",
+      "SOLD requires token-level payment evidence in a canonical Seaport settlement. MOVED means the OG is outside the account wallet set without that sale evidence.",
   },
   contracts: {
     farcasterOg: {
@@ -225,7 +269,7 @@ const output = {
 
 await writeFile(OUTPUT_PATH, `${JSON.stringify(output, null, 2)}\n`);
 console.log(
-  `Wrote ${people.length} signers: ${signedHodl} HODL, ${people.length - signedHodl} SOLD.`,
+  `Wrote ${people.length} signers: ${signedHodl} HODL, ${signedSold} SOLD, ${signedMoved} MOVED.`,
 );
 
 function safePfpUrl(value) {
@@ -268,6 +312,7 @@ async function fetchOgTokens() {
       from: log.args.from,
       to: log.args.to,
       tokenId: log.args.tokenId,
+      transactionHash: log.transactionHash,
     })),
   );
 }

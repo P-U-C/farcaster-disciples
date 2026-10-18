@@ -1,6 +1,15 @@
-export type OwnershipStatus = "HODL" | "SOLD";
+export type OwnershipStatus = "HODL" | "SOLD" | "MOVED";
 export type OwnershipBasis = "mint_wallet" | "connected_wallet" | "external_wallet";
 export type MatchType = "custody" | "verified";
+
+export interface MarketplaceEvidence {
+  marketplace: "Seaport";
+  protocol: "SEAPORT";
+  transactionHash: string;
+  contract: string;
+  orderHash: string;
+  proofUrl: string;
+}
 
 export interface Person {
   fid: number;
@@ -14,6 +23,7 @@ export interface Person {
   accountWallets: string[];
   ownershipStatus: OwnershipStatus;
   ownershipBasis: OwnershipBasis;
+  marketplaceEvidence: MarketplaceEvidence | null;
   matchedAddress: string;
   matchType: MatchType;
   voteOwner: string;
@@ -25,7 +35,7 @@ export interface Person {
 }
 
 export interface ContinuityIndex {
-  schemaVersion: 2;
+  schemaVersion: 3;
   generatedAt: string;
   meta: {
     ogSupply: number;
@@ -35,6 +45,7 @@ export interface ContinuityIndex {
     signedCount: number;
     signedHodl: number;
     signedSold: number;
+    signedMoved: number;
     identityScanMaxFid: number;
     complete: boolean;
     note: string;

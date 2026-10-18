@@ -1,5 +1,6 @@
 import {
   ArrowDown,
+  ArrowRightLeft,
   ArrowUpRight,
   CheckCircle2,
   CircleHelp,
@@ -21,7 +22,7 @@ const REPO = "https://github.com/P-U-C/farcaster-disciples";
 const PLEDGE = "https://farcaster.xyz/~/network-school";
 
 const emptyIndex: ContinuityIndex = {
-  schemaVersion: 2,
+  schemaVersion: 3,
   generatedAt: new Date(0).toISOString(),
   meta: {
     ogSupply: 938,
@@ -31,6 +32,7 @@ const emptyIndex: ContinuityIndex = {
     signedCount: 0,
     signedHodl: 0,
     signedSold: 0,
+    signedMoved: 0,
     identityScanMaxFid: 0,
     complete: false,
     note: "Loading the onchain census.",
@@ -157,7 +159,8 @@ export function App() {
           <Stat value={index.meta.ogSupply} label="ORIGINAL RECIPIENTS" />
           <Stat value={index.meta.signedCount} label="PLEDGE SIGNERS FOUND" accent />
           <Stat value={index.meta.signedHodl} label="STILL HODLING" tone="green" />
-          <Stat value={index.meta.signedSold} label="OUTSIDE ACCOUNT" tone="red" />
+          <Stat value={index.meta.signedSold} label="SALE VERIFIED" tone="red" />
+          <Stat value={index.meta.signedMoved} label="MOVED / UNKNOWN" tone="amber" />
           <div className="live-proof">
             <span className="live-dot" aria-hidden="true" />
             <div>
@@ -208,7 +211,7 @@ export function App() {
             </label>
 
             <div className="segment" aria-label="Filter by ownership status">
-              {(["ALL", "HODL", "SOLD"] as const).map((value) => (
+              {(["ALL", "HODL", "SOLD", "MOVED"] as const).map((value) => (
                 <button
                   className={status === value ? "active" : ""}
                   key={value}
@@ -222,7 +225,9 @@ export function App() {
                       ? index.meta.signedCount
                       : value === "HODL"
                         ? index.meta.signedHodl
-                        : index.meta.signedSold}
+                        : value === "SOLD"
+                          ? index.meta.signedSold
+                          : index.meta.signedMoved}
                   </span>
                 </button>
               ))}
@@ -270,8 +275,9 @@ export function App() {
           </div>
 
           <div className="badge-key">
-            <div><StatusBadge status="HODL" /> OG remains in the recipient's Farcaster wallet set.</div>
-            <div><StatusBadge status="SOLD" /> Current owner is outside that account's wallet set.</div>
+            <div><StatusBadge status="HODL" /> Held in the recipient's Farcaster wallet set.</div>
+            <div><StatusBadge status="SOLD" /> Canonical Seaport payment verified.</div>
+            <div><StatusBadge status="MOVED" /> Outside the account with no sale proof.</div>
           </div>
         </section>
 
@@ -374,7 +380,7 @@ function Stat({
   value: number;
   label: string;
   accent?: boolean;
-  tone?: "green" | "red";
+  tone?: "green" | "red" | "amber";
 }) {
   return (
     <div className={["stat", accent ? "accent" : "", tone ?? ""].filter(Boolean).join(" ")}>
@@ -405,7 +411,7 @@ function PersonRow({ person, onOpen }: { person: Person; onOpen: (person: Person
       </div>
       <div className="current-state">
         <StatusBadge status={person.ownershipStatus} />
-        <small>{ownershipBasisLabel(person)}</small>
+        <small>{statusDetailLabel(person)}</small>
       </div>
       <div className="proof-links">
         <a href={person.proofs.ogToken} target="_blank" rel="noreferrer" title="Open OG token proof">
@@ -450,7 +456,13 @@ function Avatar({ person }: { person: Person }) {
 function StatusBadge({ status }: { status: OwnershipStatus }) {
   return (
     <span className={`status-badge ${status.toLowerCase()}`}>
-      {status === "HODL" ? <CheckCircle2 size={14} /> : <X size={14} />}
+      {status === "HODL" ? (
+        <CheckCircle2 size={14} />
+      ) : status === "MOVED" ? (
+        <ArrowRightLeft size={14} />
+      ) : (
+        <X size={14} />
+      )}
       {status}
     </span>
   );
@@ -497,8 +509,14 @@ function ProofDialog({ person, onClose }: { person: Person; onClose: () => void 
           <ProofItem label="Farcaster custody wallet" value={person.custodyAddress} />
           <ProofItem
             label="Ownership result"
-            value={`${ownershipBasisLabel(person)} · ${person.accountWallets.length} wallets checked`}
+            value={`${statusDetailLabel(person)} · ${person.accountWallets.length} wallets checked`}
           />
+          {person.marketplaceEvidence && (
+            <ProofItem
+              label="Marketplace evidence"
+              value={`${person.marketplaceEvidence.marketplace} · ${person.marketplaceEvidence.transactionHash}`}
+            />
+          )}
           <ProofItem label="Identity link" value={`${person.matchType} · ${person.matchedAddress}`} />
           <ProofItem label="Pledge token owner" value={person.voteOwner} />
         </dl>
@@ -512,16 +530,21 @@ function ProofDialog({ person, onClose }: { person: Person; onClose: () => void 
           <a href={person.proofs.pledgeToken} target="_blank" rel="noreferrer">
             VOTE #{person.fid} <ArrowUpRight size={15} />
           </a>
+          {person.marketplaceEvidence && (
+            <a href={person.marketplaceEvidence.proofUrl} target="_blank" rel="noreferrer">
+              Sale transaction <ArrowUpRight size={15} />
+            </a>
+          )}
         </div>
       </section>
     </div>
   );
 }
 
-function ownershipBasisLabel(person: Person) {
-  if (person.ownershipBasis === "mint_wallet") return "mint wallet";
-  if (person.ownershipBasis === "connected_wallet") return "connected wallet";
-  return "outside account";
+function statusDetailLabel(person: Person) {
+  if (person.ownershipStatus === "SOLD") return "Seaport sale";
+  if (person.ownershipStatus === "MOVED") return "transfer, no sale proof";
+  return person.ownershipBasis === "mint_wallet" ? "mint wallet" : "connected wallet";
 }
 
 function ProofItem({ label, value }: { label: string; value: string }) {

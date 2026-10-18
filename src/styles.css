@@ -15,6 +15,7 @@
   --red-dark: #7d2e22;
   --cyan: #54cad0;
   --yellow: #f5d548;
+  --amber-dark: #735b00;
   --muted: #6e6a70;
   --line: #bab4aa;
   --soft-line: #d9d3c9;
@@ -402,7 +403,7 @@ img {
   display: grid;
   max-width: 1440px;
   min-height: 116px;
-  grid-template-columns: repeat(4, 1fr) 1.15fr;
+  grid-template-columns: repeat(5, 1fr) 1.15fr;
   margin: 0 auto;
   border-right: 1px solid var(--ink);
   border-left: 1px solid var(--ink);
@@ -446,6 +447,10 @@ img {
 
 .stat.red strong {
   color: var(--red-dark);
+}
+
+.stat.amber strong {
+  color: var(--amber-dark);
 }
 
 .live-proof {
@@ -786,6 +791,10 @@ img {
   background: var(--red);
 }
 
+.status-badge.moved {
+  background: var(--yellow);
+}
+
 .proof-links {
   display: flex;
   align-items: center;
@@ -831,8 +840,9 @@ img {
 
 .badge-key {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
-  gap: 28px;
+  gap: 18px 28px;
   padding-top: 24px;
   color: var(--muted);
   font-size: 10px;
@@ -1165,7 +1175,7 @@ footer > a {
   }
 
   .scoreboard {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 
   .live-proof {
@@ -1291,6 +1301,11 @@ footer > a {
 
   .stat:nth-child(2),
   .stat:nth-child(4) {
+    border-right: 0;
+  }
+
+  .stat:nth-child(5) {
+    grid-column: 1 / -1;
     border-right: 0;
   }
 

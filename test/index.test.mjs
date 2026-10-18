@@ -1,6 +1,9 @@
+import { encodeAbiParameters, encodeEventTopics } from "viem";
 import { describe, expect, it } from "vitest";
 import {
   classifyAccountOwnership,
+  findSeaportSaleEvidence,
+  ORDER_FULFILLED_EVENT,
   ethereumVerificationAddresses,
   mergeIdentityCandidate,
   parseProfile,
@@ -31,15 +34,20 @@ describe("replayOgTransfers", () => {
         from: "0x2222222222222222222222222222222222222222",
         to: "0x3333333333333333333333333333333333333333",
         tokenId: 2n,
+        transactionHash: `0x${"aa".repeat(32)}`,
       },
     ];
 
     expect(replayOgTransfers(logs)).toEqual([
-      expect.objectContaining({ tokenId: 1, status: "HODL" }),
+      expect.objectContaining({
+        tokenId: 1,
+        mintWalletStatus: "AT_MINT_WALLET",
+      }),
       expect.objectContaining({
         tokenId: 2,
-        status: "SOLD",
+        mintWalletStatus: "MOVED_FROM_MINT_WALLET",
         currentOwner: "0x3333333333333333333333333333333333333333",
+        transferTransactions: [`0x${"aa".repeat(32)}`],
       }),
     ]);
   });
@@ -62,7 +70,9 @@ describe("replayOgTransfers", () => {
       },
     ];
 
-    expect(replayOgTransfers(logs)[0].status).toBe("SOLD");
+    expect(replayOgTransfers(logs)[0].mintWalletStatus).toBe(
+      "MOVED_FROM_MINT_WALLET",
+    );
   });
 });
 
@@ -83,7 +93,7 @@ describe("account-level ownership", () => {
         verifiedAddresses,
       }),
     ).toMatchObject({
-      ownershipStatus: "HODL",
+      inAccount: true,
       ownershipBasis: "mint_wallet",
     });
   });
@@ -98,7 +108,7 @@ describe("account-level ownership", () => {
           verifiedAddresses,
         }),
       ).toMatchObject({
-        ownershipStatus: "HODL",
+        inAccount: true,
         ownershipBasis: "connected_wallet",
       });
     }
@@ -113,7 +123,7 @@ describe("account-level ownership", () => {
         verifiedAddresses,
       }),
     ).toMatchObject({
-      ownershipStatus: "SOLD",
+      inAccount: false,
       ownershipBasis: "external_wallet",
     });
   });
@@ -126,6 +136,74 @@ describe("account-level ownership", () => {
       verifiedAddresses,
     });
     expect(result.accountWallets).toHaveLength(3);
+  });
+});
+
+describe("Seaport sale evidence", () => {
+  const collection = "0xe03ef4b9db1a47464de84fb476f9baf493b3e886";
+  const seaport = "0x0000000000000068F116a894984e2DB1123eB395";
+  const orderHash = `0x${"11".repeat(32)}`;
+  const offerer = "0x1111111111111111111111111111111111111111";
+  const zone = "0x2222222222222222222222222222222222222222";
+  const recipient = "0x3333333333333333333333333333333333333333";
+
+  function paidSaleReceipt(
+    address = seaport,
+    paymentAmount = 50_000_000_000_000_000n,
+  ) {
+    const offer = [
+      {
+        itemType: 2,
+        token: collection,
+        identifier: 469n,
+        amount: 1n,
+      },
+    ];
+    const consideration = [
+      {
+        itemType: 1,
+        token: "0x4200000000000000000000000000000000000006",
+        identifier: 0n,
+        amount: paymentAmount,
+        recipient: offerer,
+      },
+    ];
+    return {
+      transactionHash: `0x${"22".repeat(32)}`,
+      logs: [
+        {
+          address,
+          topics: encodeEventTopics({
+            abi: [ORDER_FULFILLED_EVENT],
+            eventName: "OrderFulfilled",
+            args: { orderHash, offerer, zone },
+          }),
+          data: encodeAbiParameters(
+            ORDER_FULFILLED_EVENT.inputs.filter((input) => !input.indexed),
+            [orderHash, recipient, offer, consideration],
+          ),
+        },
+      ],
+    };
+  }
+
+  it("requires canonical Seaport payment evidence for this exact OG", () => {
+    expect(findSeaportSaleEvidence(paidSaleReceipt(), collection, 469)).toMatchObject({
+      marketplace: "Seaport",
+      protocol: "SEAPORT",
+      orderHash,
+    });
+    expect(findSeaportSaleEvidence(paidSaleReceipt(), collection, 470)).toBeNull();
+    expect(
+      findSeaportSaleEvidence(paidSaleReceipt(seaport, 0n), collection, 469),
+    ).toBeNull();
+  });
+
+  it("rejects matching event data from a noncanonical contract", () => {
+    const impostor = "0x4444444444444444444444444444444444444444";
+    expect(
+      findSeaportSaleEvidence(paidSaleReceipt(impostor), collection, 469),
+    ).toBeNull();
   });
 });
 

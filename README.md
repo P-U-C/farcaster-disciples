@@ -2,16 +2,17 @@
 
 <img src="public/assets/disciples-mark.svg" alt="The Disciples cohort seal" width="128">
 
-A public, reproducible ledger of original [Farcaster OG](https://opensea.io/collection/farcaster-og-1) recipients who signed the [Network School Farcaster pledge](https://farcaster.xyz/~/network-school), with a live **HODL** or **SOLD** status for each original NFT.
+A public, reproducible ledger of original [Farcaster OG](https://opensea.io/collection/farcaster-og-1) recipients who signed the [Network School Farcaster pledge](https://farcaster.xyz/~/network-school), with a live **HODL**, **SOLD**, or **MOVED** status for each original NFT.
 
 **Live site:** https://disciples.permanentupperclass.com
 
 ## What the badges mean
 
 - **HODL** — the OG is held by the original mint wallet, the FID's current custody wallet, or any active verified Ethereum wallet on that Farcaster account.
-- **SOLD** — the current OG owner is outside that account-level wallet set.
+- **SOLD** — the OG left that wallet set in a transaction containing token-level payment evidence from a canonical Seaport contract.
+- **MOVED** — the OG is outside that wallet set, but no supported marketplace settlement proves a sale.
 
-A security transfer between wallets connected to the same Farcaster account remains HODL. The badge describes current public onchain ownership; it does not judge why a token moved.
+A security transfer between wallets connected to the same Farcaster account remains HODL. An unlinked transfer is MOVED rather than SOLD unless the transaction itself proves a paid Seaport settlement.
 
 ## Reproduce it
 
@@ -35,15 +36,16 @@ npm run index
 1. Replay every ERC-721 transfer from the Farcaster OG contract on Zora. The first transfer from the zero address identifies the original recipient; the latest transfer identifies the current owner.
 2. Resolve original recipient wallets to FIDs using the Farcaster IdRegistry on Optimism and active Ethereum verification messages from public Farcaster nodes.
 3. Build each matched FID's current wallet set from its mint wallet, Optimism custody wallet, and active verified Ethereum wallets.
-4. Classify the OG as HODL when its current owner remains in that set; otherwise classify it as SOLD.
-5. Call `ownerOf(fid)` on the Network School `VOTE` contract on Base. A successful call proves that FID signed.
-6. Read public Farcaster profile messages for the matched FIDs.
+4. Classify the OG as HODL when its current owner remains in that set.
+5. For OGs outside the set, inspect their transfer receipts. Require a canonical Seaport `OrderFulfilled` event containing the exact OG contract/token and a nonzero native or ERC-20 payment before assigning SOLD; otherwise assign MOVED.
+6. Call `ownerOf(fid)` on the Network School `VOTE` contract on Base. A successful call proves that FID signed.
+7. Read public Farcaster profile messages for the matched FIDs.
 
 The generated dataset is committed at [`public/data/index.json`](public/data/index.json). Identity links are cached separately at [`data/identity-cache.json`](data/identity-cache.json) so routine refreshes do not rescan the social graph.
 
 ## Coverage
 
-The dashboard reports a **confirmed minimum**, not an exhaustive historical claim. Removed verification messages and wallets no longer linked to a Farcaster account can hide a valid original-recipient relationship. The site shows identity coverage and states this limitation next to the census.
+The dashboard reports a **confirmed minimum**, not an exhaustive historical claim. Removed verification messages and wallets no longer linked to a Farcaster account can hide a valid original-recipient relationship. SOLD currently recognizes canonical Seaport 1.5 and 1.6 settlements; unsupported marketplaces remain MOVED rather than being guessed as sales. The site states this limitation next to the census.
 
 The weekly discovery job scans the FID range occupied by the original cohort. Daily jobs refresh OG ownership, pledge ownership, and public profile data.
 
