@@ -10,6 +10,7 @@ import {
 } from "viem";
 import { base, optimism, zora } from "viem/chains";
 import {
+  classifyAccountOwnership,
   ethereumVerificationAddresses,
   mergeIdentityCandidate,
   parseProfile,
@@ -64,6 +65,7 @@ const transferEvent = parseAbiItem(
 );
 const idRegistryAbi = parseAbi([
   "function idOf(address owner) view returns (uint256)",
+  "function custodyOf(uint256 fid) view returns (address)",
 ]);
 const erc721Abi = parseAbi([
   "function ownerOf(uint256 tokenId) view returns (address)",
@@ -115,16 +117,46 @@ const signed = candidates.flatMap((candidate, index) => {
     : [];
 });
 
-console.log(`Enriching ${signed.length} signed identities...`);
+const custodyResults = await optimismClient.multicall({
+  allowFailure: true,
+  batchSize: 4_096,
+  contracts: signed.map((person) => ({
+    address: CONTRACTS.idRegistry.address,
+    abi: idRegistryAbi,
+    functionName: "custodyOf",
+    args: [BigInt(person.fid)],
+  })),
+});
+
+const signedWithCustody = signed.map((person, index) => {
+  const result = custodyResults[index];
+  if (result.status !== "success") {
+    throw new Error(`Could not read custody wallet for FID ${person.fid}`);
+  }
+  return { ...person, custodyAddress: getAddress(result.result) };
+});
+
+console.log(`Enriching ${signedWithCustody.length} signed identities...`);
 const people = [];
-for (const group of chunks(signed, 50)) {
+for (const group of chunks(signedWithCustody, 50)) {
   const enriched = await Promise.all(
     group.map(async (person) => {
-      const profile = parseProfile(
-        (await fetchHub(`/v1/userDataByFid?fid=${person.fid}`)).messages ?? [],
-        person.fid,
-      );
+      const [profileResponse, verificationResponse] = await Promise.all([
+        fetchHub(`/v1/userDataByFid?fid=${person.fid}`),
+        fetchHub(`/v1/verificationsByFid?fid=${person.fid}`, 0, true),
+      ]);
+      const profile = parseProfile(profileResponse.messages ?? [], person.fid);
       const username = profile.username;
+      const verifiedAddresses = ethereumVerificationAddresses(
+        verificationResponse.messages ?? [],
+      );
+      const ownership = classifyAccountOwnership({
+        mintWallet: person.mintWallet,
+        currentOwner: person.currentOwner,
+        custodyAddress: person.custodyAddress,
+        verifiedAddresses,
+      });
+
       return {
         fid: person.fid,
         username,
@@ -133,7 +165,10 @@ for (const group of chunks(signed, 50)) {
         ogTokenId: person.tokenId,
         mintWallet: getAddress(person.mintWallet),
         currentOwner: getAddress(person.currentOwner),
-        ownershipStatus: person.status,
+        custodyAddress: person.custodyAddress,
+        accountWallets: ownership.accountWallets.map((address) => getAddress(address)),
+        ownershipStatus: ownership.ownershipStatus,
+        ownershipBasis: ownership.ownershipBasis,
         matchedAddress: getAddress(person.matchedAddress),
         matchType: person.matchType,
         voteOwner: person.voteOwner,
@@ -151,16 +186,16 @@ for (const group of chunks(signed, 50)) {
 }
 
 people.sort((a, b) => a.ogTokenId - b.ogTokenId);
-const hodl = ogTokens.filter((token) => token.status === "HODL").length;
+const atMintWallet = ogTokens.filter((token) => token.status === "HODL").length;
 const signedHodl = people.filter((person) => person.ownershipStatus === "HODL").length;
 
 const output = {
-  schemaVersion: 1,
+  schemaVersion: 2,
   generatedAt: new Date().toISOString(),
   meta: {
     ogSupply: ogTokens.length,
-    ogHodl: hodl,
-    ogSold: ogTokens.length - hodl,
+    ogAtMintWallet: atMintWallet,
+    ogMovedFromMintWallet: ogTokens.length - atMintWallet,
     resolvedIdentities: candidates.length,
     signedCount: people.length,
     signedHodl,
@@ -168,7 +203,7 @@ const output = {
     identityScanMaxFid: identityCache.identityScanMaxFid,
     complete: false,
     note:
-      "This is the confirmed set from current custody and active verified-wallet links. Removed historical wallet links can make the true overlap larger.",
+      "HODL means the OG is held by the mint wallet, current FID custody wallet, or an active verified Ethereum wallet. Removed historical links can make the true overlap larger.",
   },
   contracts: {
     farcasterOg: {
@@ -309,7 +344,7 @@ async function discoverIdentities(tokens) {
   };
 }
 
-async function fetchHub(path, attempt = 0) {
+async function fetchHub(path, attempt = 0, required = false) {
   const hosts = [
     process.env.FARCASTER_HUB_URL,
     "https://haatz.quilibrium.com",
@@ -330,9 +365,12 @@ async function fetchHub(path, attempt = 0) {
 
   if (attempt < 2) {
     await new Promise((resolve) => setTimeout(resolve, 350 * (attempt + 1)));
-    return fetchHub(path, attempt + 1);
+    return fetchHub(path, attempt + 1, required);
   }
 
+  if (required) {
+    throw new Error(`Could not read required Farcaster data: ${path}`);
+  }
   return { messages: [] };
 }
 

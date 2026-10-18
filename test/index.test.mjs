@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  classifyAccountOwnership,
   ethereumVerificationAddresses,
   mergeIdentityCandidate,
   parseProfile,
@@ -62,6 +63,69 @@ describe("replayOgTransfers", () => {
     ];
 
     expect(replayOgTransfers(logs)[0].status).toBe("SOLD");
+  });
+});
+
+describe("account-level ownership", () => {
+  const mintWallet = "0x1111111111111111111111111111111111111111";
+  const custodyAddress = "0x2222222222222222222222222222222222222222";
+  const verifiedAddresses = [
+    "0x3333333333333333333333333333333333333333",
+    mintWallet.toUpperCase().replace("0X", "0x"),
+  ];
+
+  it("keeps an OG at HODL when it remains in the mint wallet", () => {
+    expect(
+      classifyAccountOwnership({
+        mintWallet,
+        currentOwner: mintWallet,
+        custodyAddress,
+        verifiedAddresses,
+      }),
+    ).toMatchObject({
+      ownershipStatus: "HODL",
+      ownershipBasis: "mint_wallet",
+    });
+  });
+
+  it("keeps security transfers to custody or verified wallets at HODL", () => {
+    for (const currentOwner of [custodyAddress, verifiedAddresses[0]]) {
+      expect(
+        classifyAccountOwnership({
+          mintWallet,
+          currentOwner,
+          custodyAddress,
+          verifiedAddresses,
+        }),
+      ).toMatchObject({
+        ownershipStatus: "HODL",
+        ownershipBasis: "connected_wallet",
+      });
+    }
+  });
+
+  it("uses SOLD only when the OG leaves the Farcaster account wallet set", () => {
+    expect(
+      classifyAccountOwnership({
+        mintWallet,
+        currentOwner: "0x4444444444444444444444444444444444444444",
+        custodyAddress,
+        verifiedAddresses,
+      }),
+    ).toMatchObject({
+      ownershipStatus: "SOLD",
+      ownershipBasis: "external_wallet",
+    });
+  });
+
+  it("deduplicates connected wallets case-insensitively", () => {
+    const result = classifyAccountOwnership({
+      mintWallet,
+      currentOwner: mintWallet,
+      custodyAddress,
+      verifiedAddresses,
+    });
+    expect(result.accountWallets).toHaveLength(3);
   });
 });
 

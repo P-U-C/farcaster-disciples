@@ -32,6 +32,35 @@ export function replayOgTransfers(logs) {
     });
 }
 
+export function classifyAccountOwnership({
+  mintWallet,
+  currentOwner,
+  custodyAddress,
+  verifiedAddresses = [],
+}) {
+  const byAddress = new Map();
+
+  for (const address of [mintWallet, custodyAddress, ...verifiedAddresses]) {
+    if (typeof address !== "string" || !address.startsWith("0x")) continue;
+    byAddress.set(address.toLowerCase(), address);
+  }
+
+  const currentKey = currentOwner.toLowerCase();
+  const mintKey = mintWallet.toLowerCase();
+  const ownershipBasis =
+    currentKey === mintKey
+      ? "mint_wallet"
+      : byAddress.has(currentKey)
+        ? "connected_wallet"
+        : "external_wallet";
+
+  return {
+    ownershipStatus: ownershipBasis === "external_wallet" ? "SOLD" : "HODL",
+    ownershipBasis,
+    accountWallets: [...byAddress.values()],
+  };
+}
+
 export function mergeIdentityCandidate(existing, candidate) {
   if (!existing) return candidate;
   if (existing.matchType === "custody") return existing;

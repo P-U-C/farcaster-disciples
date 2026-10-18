@@ -21,12 +21,12 @@ const REPO = "https://github.com/P-U-C/farcaster-disciples";
 const PLEDGE = "https://farcaster.xyz/~/network-school";
 
 const emptyIndex: ContinuityIndex = {
-  schemaVersion: 1,
+  schemaVersion: 2,
   generatedAt: new Date(0).toISOString(),
   meta: {
     ogSupply: 938,
-    ogHodl: 0,
-    ogSold: 0,
+    ogAtMintWallet: 0,
+    ogMovedFromMintWallet: 0,
     resolvedIdentities: 0,
     signedCount: 0,
     signedHodl: 0,
@@ -157,7 +157,7 @@ export function App() {
           <Stat value={index.meta.ogSupply} label="ORIGINAL RECIPIENTS" />
           <Stat value={index.meta.signedCount} label="PLEDGE SIGNERS FOUND" accent />
           <Stat value={index.meta.signedHodl} label="STILL HODLING" tone="green" />
-          <Stat value={index.meta.signedSold} label="SOLD / MOVED" tone="red" />
+          <Stat value={index.meta.signedSold} label="OUTSIDE ACCOUNT" tone="red" />
           <div className="live-proof">
             <span className="live-dot" aria-hidden="true" />
             <div>
@@ -270,8 +270,8 @@ export function App() {
           </div>
 
           <div className="badge-key">
-            <div><StatusBadge status="HODL" /> Original mint wallet still owns the OG.</div>
-            <div><StatusBadge status="SOLD" /> OG moved from its original recipient.</div>
+            <div><StatusBadge status="HODL" /> OG remains in the recipient's Farcaster wallet set.</div>
+            <div><StatusBadge status="SOLD" /> Current owner is outside that account's wallet set.</div>
           </div>
         </section>
 
@@ -291,7 +291,7 @@ export function App() {
               </li>
               <li>
                 <b>Identity</b>
-                <span>Resolve custody and active verified-wallet links to a Farcaster FID.</span>
+                <span>Resolve each FID's mint, custody, and active verified Ethereum wallets.</span>
               </li>
               <li>
                 <b>Commitment</b>
@@ -405,7 +405,7 @@ function PersonRow({ person, onOpen }: { person: Person; onOpen: (person: Person
       </div>
       <div className="current-state">
         <StatusBadge status={person.ownershipStatus} />
-        <small>{person.ownershipStatus === "HODL" ? "at mint wallet" : "wallet changed"}</small>
+        <small>{ownershipBasisLabel(person)}</small>
       </div>
       <div className="proof-links">
         <a href={person.proofs.ogToken} target="_blank" rel="noreferrer" title="Open OG token proof">
@@ -494,6 +494,11 @@ function ProofDialog({ person, onClose }: { person: Person; onClose: () => void 
         <dl>
           <ProofItem label="Original mint wallet" value={person.mintWallet} />
           <ProofItem label="Current OG owner" value={person.currentOwner} />
+          <ProofItem label="Farcaster custody wallet" value={person.custodyAddress} />
+          <ProofItem
+            label="Ownership result"
+            value={`${ownershipBasisLabel(person)} · ${person.accountWallets.length} wallets checked`}
+          />
           <ProofItem label="Identity link" value={`${person.matchType} · ${person.matchedAddress}`} />
           <ProofItem label="Pledge token owner" value={person.voteOwner} />
         </dl>
@@ -511,6 +516,12 @@ function ProofDialog({ person, onClose }: { person: Person; onClose: () => void 
       </section>
     </div>
   );
+}
+
+function ownershipBasisLabel(person: Person) {
+  if (person.ownershipBasis === "mint_wallet") return "mint wallet";
+  if (person.ownershipBasis === "connected_wallet") return "connected wallet";
+  return "outside account";
 }
 
 function ProofItem({ label, value }: { label: string; value: string }) {

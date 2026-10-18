@@ -8,10 +8,10 @@ A public, reproducible ledger of original [Farcaster OG](https://opensea.io/coll
 
 ## What the badges mean
 
-- **HODL** — the address that received the OG mint still owns that token.
-- **SOLD** — the token has moved away from its original mint address.
+- **HODL** — the OG is held by the original mint wallet, the FID's current custody wallet, or any active verified Ethereum wallet on that Farcaster account.
+- **SOLD** — the current OG owner is outside that account-level wallet set.
 
-The badge describes the NFT's onchain location. It does not judge why a token moved.
+A security transfer between wallets connected to the same Farcaster account remains HODL. The badge describes current public onchain ownership; it does not judge why a token moved.
 
 ## Reproduce it
 
@@ -34,8 +34,10 @@ npm run index
 
 1. Replay every ERC-721 transfer from the Farcaster OG contract on Zora. The first transfer from the zero address identifies the original recipient; the latest transfer identifies the current owner.
 2. Resolve original recipient wallets to FIDs using the Farcaster IdRegistry on Optimism and active Ethereum verification messages from public Farcaster nodes.
-3. Call `ownerOf(fid)` on the Network School `VOTE` contract on Base. A successful call proves that FID signed.
-4. Read public Farcaster profile messages for the matched FIDs.
+3. Build each matched FID's current wallet set from its mint wallet, Optimism custody wallet, and active verified Ethereum wallets.
+4. Classify the OG as HODL when its current owner remains in that set; otherwise classify it as SOLD.
+5. Call `ownerOf(fid)` on the Network School `VOTE` contract on Base. A successful call proves that FID signed.
+6. Read public Farcaster profile messages for the matched FIDs.
 
 The generated dataset is committed at [`public/data/index.json`](public/data/index.json). Identity links are cached separately at [`data/identity-cache.json`](data/identity-cache.json) so routine refreshes do not rescan the social graph.
 

@@ -1,4 +1,5 @@
 export type OwnershipStatus = "HODL" | "SOLD";
+export type OwnershipBasis = "mint_wallet" | "connected_wallet" | "external_wallet";
 export type MatchType = "custody" | "verified";
 
 export interface Person {
@@ -9,7 +10,10 @@ export interface Person {
   ogTokenId: number;
   mintWallet: string;
   currentOwner: string;
+  custodyAddress: string;
+  accountWallets: string[];
   ownershipStatus: OwnershipStatus;
+  ownershipBasis: OwnershipBasis;
   matchedAddress: string;
   matchType: MatchType;
   voteOwner: string;
@@ -21,12 +25,12 @@ export interface Person {
 }
 
 export interface ContinuityIndex {
-  schemaVersion: 1;
+  schemaVersion: 2;
   generatedAt: string;
   meta: {
     ogSupply: number;
-    ogHodl: number;
-    ogSold: number;
+    ogAtMintWallet: number;
+    ogMovedFromMintWallet: number;
     resolvedIdentities: number;
     signedCount: number;
     signedHodl: number;
