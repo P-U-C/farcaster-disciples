@@ -1,15 +1,15 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-10-19T09:58:03.646Z",
+  "generatedAt": "2026-10-20T09:28:20.517Z",
   "meta": {
     "ogSupply": 938,
     "ogAtMintWallet": 492,
     "ogMovedFromMintWallet": 446,
     "resolvedIdentities": 805,
-    "signedCount": 223,
-    "signedHodl": 113,
-    "signedSold": 98,
-    "signedMoved": 12,
+    "signedCount": 232,
+    "signedHodl": 116,
+    "signedSold": 103,
+    "signedMoved": 13,
     "identityScanMaxFid": 22000,
     "complete": false,
     "note": "SOLD requires token-level payment evidence in a canonical Seaport settlement. MOVED means the OG is outside the account wallet set without that sale evidence."
@@ -1672,6 +1672,70 @@
       }
     },
     {
+      "fid": 1631,
+      "username": "aho",
+      "displayName": "Aaron Ho φ",
+      "pfpUrl": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/e9047b19-2456-4d8a-c608-6fbe2af8e400/original",
+      "ogTokenId": 222,
+      "mintWallet": "0xF58fe388D53E9542F0BDdFF2D1578B13675228FD",
+      "currentOwner": "0x9b5AE497fd1BF885A40D6f99d0c57245761E053C",
+      "custodyAddress": "0xeC5CCbF3E7Cac22a41fE9Fc998aC4b6DEF03a5d8",
+      "accountWallets": [
+        "0xF58fe388D53E9542F0BDdFF2D1578B13675228FD",
+        "0xeC5CCbF3E7Cac22a41fE9Fc998aC4b6DEF03a5d8",
+        "0x0F8F8969e26b6A92b50bF8bb91878eF23e6AFAe8",
+        "0x67Df0aA949437cFC9FF2C5cFc0668Be596390Ba2",
+        "0x0fa7F44a1E1a8476CD90d0e1f50AD5AE80CE29eb"
+      ],
+      "ownershipStatus": "SOLD",
+      "ownershipBasis": "external_wallet",
+      "marketplaceEvidence": {
+        "marketplace": "Seaport",
+        "protocol": "SEAPORT",
+        "transactionHash": "0x01117eb14eecfd880f35aa6795f80d3ef0a99d4c3f1e63e9ebdb01a60fa9de23",
+        "contract": "0x00000000000000adc04c56bf30ac9d3c0aaf14dc",
+        "orderHash": "0x9eb3f5b0ea533438b0e9f93e96b2815c5c77e539cf4505c3f1d2f8bf65302848",
+        "proofUrl": "https://explorer.zora.energy/tx/0x01117eb14eecfd880f35aa6795f80d3ef0a99d4c3f1e63e9ebdb01a60fa9de23"
+      },
+      "matchedAddress": "0xF58fe388D53E9542F0BDdFF2D1578B13675228FD",
+      "matchType": "verified",
+      "voteOwner": "0x67Df0aA949437cFC9FF2C5cFc0668Be596390Ba2",
+      "proofs": {
+        "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/222",
+        "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/1631",
+        "farcasterProfile": "https://farcaster.xyz/aho"
+      }
+    },
+    {
+      "fid": 1668,
+      "username": "tomu",
+      "displayName": "tomu",
+      "pfpUrl": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/b470eabb-b1a5-42c4-58ad-04a3c9be2e00/original",
+      "ogTokenId": 226,
+      "mintWallet": "0x98397A068d413D3C92A506f98c5F25D33A9DAc14",
+      "currentOwner": "0x98397A068d413D3C92A506f98c5F25D33A9DAc14",
+      "custodyAddress": "0xcA85072F10B2812fE43bD7014D920A6c79941310",
+      "accountWallets": [
+        "0x98397A068d413D3C92A506f98c5F25D33A9DAc14",
+        "0xcA85072F10B2812fE43bD7014D920A6c79941310",
+        "0xd4C66AaACd90f3fdCc1ABA7e82394673FEc6fCd8",
+        "0x9471Ef339ed6a8CD96F190252EE7363Eaf72cDb9",
+        "0x3dF1e2bB1a51C84B531195388b2B540e3d90E3e0",
+        "0x71738F8ba6853cF8c3Ec2b98Ef42d2306480C6FF"
+      ],
+      "ownershipStatus": "HODL",
+      "ownershipBasis": "mint_wallet",
+      "marketplaceEvidence": null,
+      "matchedAddress": "0x98397A068d413D3C92A506f98c5F25D33A9DAc14",
+      "matchType": "verified",
+      "voteOwner": "0x71738F8ba6853cF8c3Ec2b98Ef42d2306480C6FF",
+      "proofs": {
+        "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/226",
+        "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/1668",
+        "farcasterProfile": "https://farcaster.xyz/tomu"
+      }
+    },
+    {
       "fid": 1797,
       "username": "kiren",
       "displayName": "Kiren Srinivasan",
@@ -1810,6 +1874,40 @@
         "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/244",
         "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/1970",
         "farcasterProfile": "https://farcaster.xyz/grin"
+      }
+    },
+    {
+      "fid": 1992,
+      "username": "thibauld",
+      "displayName": "Thibauld",
+      "pfpUrl": null,
+      "ogTokenId": 247,
+      "mintWallet": "0xB81E88279F3208001AEdA20689d3E5d818758dbf",
+      "currentOwner": "0x2c9020b718513060dbB4125642191dEa728d2277",
+      "custodyAddress": "0x54Ae829Dd88b7bA370E80BB190c8cdD67e05dD1F",
+      "accountWallets": [
+        "0xB81E88279F3208001AEdA20689d3E5d818758dbf",
+        "0x54Ae829Dd88b7bA370E80BB190c8cdD67e05dD1F",
+        "0x467632C5C0097E16BBe4612d03FeF1e487A8B0bD",
+        "0x8549C58Ed84e50F86f87aF1ad2ab366a30A6B0a7"
+      ],
+      "ownershipStatus": "SOLD",
+      "ownershipBasis": "external_wallet",
+      "marketplaceEvidence": {
+        "marketplace": "Seaport",
+        "protocol": "SEAPORT",
+        "transactionHash": "0xc3c732a461d0a876e6bd39ccdb665129820cc78fde0ae76eaf651aac43f5fe6e",
+        "contract": "0x0000000000000068f116a894984e2db1123eb395",
+        "orderHash": "0xc4aee0f34d6aa491bb7525508d6e2f2f8a5229614bfb27f24ca15f754407e1e7",
+        "proofUrl": "https://explorer.zora.energy/tx/0xc3c732a461d0a876e6bd39ccdb665129820cc78fde0ae76eaf651aac43f5fe6e"
+      },
+      "matchedAddress": "0xB81E88279F3208001AEdA20689d3E5d818758dbf",
+      "matchType": "verified",
+      "voteOwner": "0x467632C5C0097E16BBe4612d03FeF1e487A8B0bD",
+      "proofs": {
+        "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/247",
+        "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/1992",
+        "farcasterProfile": "https://farcaster.xyz/thibauld"
       }
     },
     {
@@ -2434,6 +2532,41 @@
         "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/350",
         "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/3747",
         "farcasterProfile": "https://farcaster.xyz/cpoetter.eth"
+      }
+    },
+    {
+      "fid": 3801,
+      "username": "peterferguson.eth",
+      "displayName": "Peter Ferguson",
+      "pfpUrl": null,
+      "ogTokenId": 353,
+      "mintWallet": "0x524bF2086D4b5BBdA06f4c16Ec36f06AAd4E1Cad",
+      "currentOwner": "0xAE80a091EFd5F808371C723F8ea82Bb6560f9b10",
+      "custodyAddress": "0xa101eD65160126c5ab3a980f0843351EE677fdF8",
+      "accountWallets": [
+        "0x524bF2086D4b5BBdA06f4c16Ec36f06AAd4E1Cad",
+        "0xa101eD65160126c5ab3a980f0843351EE677fdF8",
+        "0x943f53Cc91022A632B18EFDb0C2A1ec7c5705b87",
+        "0x3EA45eB90810ADc315f9fc77663d0bdf3b84e296",
+        "0xb0a69eD012BcbD86DdaFa104c555ac0Ff965aC54"
+      ],
+      "ownershipStatus": "SOLD",
+      "ownershipBasis": "external_wallet",
+      "marketplaceEvidence": {
+        "marketplace": "Seaport",
+        "protocol": "SEAPORT",
+        "transactionHash": "0x4d1f2abd5163036d6b2b5f259ffd15da8be17e0f2f83308046a41a85cfe1f465",
+        "contract": "0x0000000000000068f116a894984e2db1123eb395",
+        "orderHash": "0x70c41818702a08f4a2ea6518d3183dec6aadd34eb8bea58b1c2bd51a28bb83fd",
+        "proofUrl": "https://explorer.zora.energy/tx/0x4d1f2abd5163036d6b2b5f259ffd15da8be17e0f2f83308046a41a85cfe1f465"
+      },
+      "matchedAddress": "0x524bF2086D4b5BBdA06f4c16Ec36f06AAd4E1Cad",
+      "matchType": "verified",
+      "voteOwner": "0x943f53Cc91022A632B18EFDb0C2A1ec7c5705b87",
+      "proofs": {
+        "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/353",
+        "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/3801",
+        "farcasterProfile": "https://farcaster.xyz/peterferguson.eth"
       }
     },
     {
@@ -3662,8 +3795,8 @@
       "accountWallets": [
         "0xEe0b53ac9578cBc6E0CEE0Ac6E18cfb7118b5cb3",
         "0x66ccC908f2f0fcd385DA1B4cCbB0CcbEfBbEA90b",
-        "0x355efbcbcDb96AB72b91cfCA2114Cd43F93E90ED",
-        "0x9c8Fd85673de5E51FDC9Ae4A074250494c9882E9"
+        "0x9c8Fd85673de5E51FDC9Ae4A074250494c9882E9",
+        "0x355efbcbcDb96AB72b91cfCA2114Cd43F93E90ED"
       ],
       "ownershipStatus": "HODL",
       "ownershipBasis": "mint_wallet",
@@ -3980,6 +4113,36 @@
         "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/559",
         "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/8332",
         "farcasterProfile": "https://farcaster.xyz/awedjob"
+      }
+    },
+    {
+      "fid": 8447,
+      "username": "eriks",
+      "displayName": "Erik",
+      "pfpUrl": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/15de06cb-e261-43c8-9303-353b844c9400/original",
+      "ogTokenId": 564,
+      "mintWallet": "0xFE819920199392CdD911AcDaED84b38f30e27562",
+      "currentOwner": "0x09B5f916f8EAD654D3a8459627829efaa7e0F5CF",
+      "custodyAddress": "0x1B58BE83960b39921a29112117f7CA5336FC91c5",
+      "accountWallets": [
+        "0xFE819920199392CdD911AcDaED84b38f30e27562",
+        "0x1B58BE83960b39921a29112117f7CA5336FC91c5",
+        "0x134cD8CBB8E6877C4d3216F6a2D2AF29A097240E",
+        "0x3E7c02d9F251AB3d8FE56a27C2eB1681d8Dde5ec",
+        "0xE211191eaaaec68ffF0037864229aFaA156071B1",
+        "0x15d2aFD3Ee03F90e95c86E1673502D7aA4fa2211",
+        "0x140022B7554d5E5AD88c3148A48A65409C4bcF44"
+      ],
+      "ownershipStatus": "MOVED",
+      "ownershipBasis": "external_wallet",
+      "marketplaceEvidence": null,
+      "matchedAddress": "0xFE819920199392CdD911AcDaED84b38f30e27562",
+      "matchType": "verified",
+      "voteOwner": "0x140022B7554d5E5AD88c3148A48A65409C4bcF44",
+      "proofs": {
+        "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/564",
+        "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/8447",
+        "farcasterProfile": "https://farcaster.xyz/eriks"
       }
     },
     {
@@ -4535,6 +4698,34 @@
       }
     },
     {
+      "fid": 11502,
+      "username": "wecreateproject",
+      "displayName": "we create project <eth/acc>",
+      "pfpUrl": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/0bdbc5eb-e57c-4b24-e909-bc9c8ae4e600/original",
+      "ogTokenId": 649,
+      "mintWallet": "0x89AE94A5Bed3e946C46888bCc65a3e4c49b9eF33",
+      "currentOwner": "0xA97CA732232Cd2ACaB9038a1943fe2A79FA1cCc8",
+      "custodyAddress": "0x8761b2596eA5E524A15A956bFC10802dF8dAeCD6",
+      "accountWallets": [
+        "0x89AE94A5Bed3e946C46888bCc65a3e4c49b9eF33",
+        "0x8761b2596eA5E524A15A956bFC10802dF8dAeCD6",
+        "0x19bD1dBc21EF0270667807F36A410E087d58370C",
+        "0xA97CA732232Cd2ACaB9038a1943fe2A79FA1cCc8",
+        "0xFc5110D04ea6578957ed4C6d33dE01E9B5633eB0"
+      ],
+      "ownershipStatus": "HODL",
+      "ownershipBasis": "connected_wallet",
+      "marketplaceEvidence": null,
+      "matchedAddress": "0x89AE94A5Bed3e946C46888bCc65a3e4c49b9eF33",
+      "matchType": "verified",
+      "voteOwner": "0x19bD1dBc21EF0270667807F36A410E087d58370C",
+      "proofs": {
+        "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/649",
+        "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/11502",
+        "farcasterProfile": "https://farcaster.xyz/wecreateproject"
+      }
+    },
+    {
       "fid": 11528,
       "username": "jrf",
       "displayName": "Jacob",
@@ -5078,6 +5269,32 @@
         "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/700",
         "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/13418",
         "farcasterProfile": "https://farcaster.xyz/dtso"
+      }
+    },
+    {
+      "fid": 13539,
+      "username": "leader",
+      "displayName": "leader🎩🧀🔮🍖🎭",
+      "pfpUrl": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/a1351dc5-372c-4d8b-5419-dd80ef096e00/original",
+      "ogTokenId": 708,
+      "mintWallet": "0xa8C8CDfC60331d7cf867E1732721AeE7699b260c",
+      "currentOwner": "0xa8C8CDfC60331d7cf867E1732721AeE7699b260c",
+      "custodyAddress": "0x8be038312B4E79D600fdba40d248AD2f2f6ABA36",
+      "accountWallets": [
+        "0xa8C8CDfC60331d7cf867E1732721AeE7699b260c",
+        "0x8be038312B4E79D600fdba40d248AD2f2f6ABA36",
+        "0xC9c43DebC8a60A07F6fCB29184084EFEC1506815"
+      ],
+      "ownershipStatus": "HODL",
+      "ownershipBasis": "mint_wallet",
+      "marketplaceEvidence": null,
+      "matchedAddress": "0xa8C8CDfC60331d7cf867E1732721AeE7699b260c",
+      "matchType": "verified",
+      "voteOwner": "0xC9c43DebC8a60A07F6fCB29184084EFEC1506815",
+      "proofs": {
+        "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/708",
+        "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/13539",
+        "farcasterProfile": "https://farcaster.xyz/leader"
       }
     },
     {
@@ -5915,6 +6132,39 @@
       }
     },
     {
+      "fid": 16008,
+      "username": "masoudjm",
+      "displayName": "Masoudjm",
+      "pfpUrl": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/9be06331-a213-40cb-a147-3f73ba0da600/original",
+      "ogTokenId": 785,
+      "mintWallet": "0x2D2EbcF70fd7301832e42709F10384Dc447a4244",
+      "currentOwner": "0xDfa7777507F7Ba68AA42192d714F747F77C07F97",
+      "custodyAddress": "0x7aDf80abeE7Fc42A1328f28c7CBfCE0940F17784",
+      "accountWallets": [
+        "0x2D2EbcF70fd7301832e42709F10384Dc447a4244",
+        "0x7aDf80abeE7Fc42A1328f28c7CBfCE0940F17784",
+        "0x7b6562877F1f8989B323005f614379D4fc83e6A7"
+      ],
+      "ownershipStatus": "SOLD",
+      "ownershipBasis": "external_wallet",
+      "marketplaceEvidence": {
+        "marketplace": "Seaport",
+        "protocol": "SEAPORT",
+        "transactionHash": "0xa422fc5dc92cd723ab9106f4e24ee560a249e30094c257adccf691df344f28c4",
+        "contract": "0x00000000000000adc04c56bf30ac9d3c0aaf14dc",
+        "orderHash": "0x4de277a65ce57d479d4606cb909115162022a7a6b0e5e1770786602f31390c34",
+        "proofUrl": "https://explorer.zora.energy/tx/0xa422fc5dc92cd723ab9106f4e24ee560a249e30094c257adccf691df344f28c4"
+      },
+      "matchedAddress": "0x2D2EbcF70fd7301832e42709F10384Dc447a4244",
+      "matchType": "verified",
+      "voteOwner": "0x7b6562877F1f8989B323005f614379D4fc83e6A7",
+      "proofs": {
+        "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/785",
+        "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/16008",
+        "farcasterProfile": "https://farcaster.xyz/masoudjm"
+      }
+    },
+    {
       "fid": 16098,
       "username": "jpfraneto",
       "displayName": "jp",
@@ -6561,6 +6811,40 @@
         "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/858",
         "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/19500",
         "farcasterProfile": "https://farcaster.xyz/donyasd"
+      }
+    },
+    {
+      "fid": 19506,
+      "username": "omidbln",
+      "displayName": "Omid🎩",
+      "pfpUrl": null,
+      "ogTokenId": 859,
+      "mintWallet": "0xa71C40350D5545bC45A7fF03E90fdF685C792E1D",
+      "currentOwner": "0xDfa7777507F7Ba68AA42192d714F747F77C07F97",
+      "custodyAddress": "0xeaCD3162bcDb335FE3541dDff4b079D6Ed100160",
+      "accountWallets": [
+        "0xa71C40350D5545bC45A7fF03E90fdF685C792E1D",
+        "0xeaCD3162bcDb335FE3541dDff4b079D6Ed100160",
+        "0x545012E0BaB2abaFc1eeB21DF8c49C056Ef2c877",
+        "0x526485572BBb4A2af14B8C5638352D0Ebe73B60b"
+      ],
+      "ownershipStatus": "SOLD",
+      "ownershipBasis": "external_wallet",
+      "marketplaceEvidence": {
+        "marketplace": "Seaport",
+        "protocol": "SEAPORT",
+        "transactionHash": "0xe3a26947161aaf9977de730d5ec547b348bf48ab54fc0d0a2968f27d0dbcab65",
+        "contract": "0x00000000000000adc04c56bf30ac9d3c0aaf14dc",
+        "orderHash": "0xe17d228f7c9651170ef7d28d4e62b558df5be9a6d2514dd07fbf87c72b4ea6e1",
+        "proofUrl": "https://explorer.zora.energy/tx/0xe3a26947161aaf9977de730d5ec547b348bf48ab54fc0d0a2968f27d0dbcab65"
+      },
+      "matchedAddress": "0xa71C40350D5545bC45A7fF03E90fdF685C792E1D",
+      "matchType": "verified",
+      "voteOwner": "0x545012E0BaB2abaFc1eeB21DF8c49C056Ef2c877",
+      "proofs": {
+        "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/859",
+        "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/19506",
+        "farcasterProfile": "https://farcaster.xyz/omidbln"
       }
     },
     {
