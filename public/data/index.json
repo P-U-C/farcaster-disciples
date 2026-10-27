@@ -1,14 +1,14 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-10-26T10:11:31.374Z",
+  "generatedAt": "2026-10-27T09:51:04.878Z",
   "meta": {
     "ogSupply": 938,
     "ogAtMintWallet": 491,
     "ogMovedFromMintWallet": 447,
     "resolvedIdentities": 805,
-    "signedCount": 245,
-    "signedHodl": 124,
-    "signedSold": 108,
+    "signedCount": 247,
+    "signedHodl": 125,
+    "signedSold": 109,
     "signedMoved": 13,
     "identityScanMaxFid": 22000,
     "complete": false,
@@ -3464,6 +3464,36 @@
       }
     },
     {
+      "fid": 6090,
+      "username": "simmons",
+      "displayName": "Dan Simmons",
+      "pfpUrl": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/a353c1e9-f5b8-4bd7-886b-7315fd242b00/original",
+      "ogTokenId": 481,
+      "mintWallet": "0x27629B5d175E899a19eD6B3a96016377d5eE4768",
+      "currentOwner": "0x27629B5d175E899a19eD6B3a96016377d5eE4768",
+      "custodyAddress": "0x67d667FBd1D9B5a9E307b4b320d5948cd52Be6F2",
+      "accountWallets": [
+        "0x27629B5d175E899a19eD6B3a96016377d5eE4768",
+        "0x67d667FBd1D9B5a9E307b4b320d5948cd52Be6F2",
+        "0xBcDA9Da41f883DE0Ba16A8608d0de29FaFf40410",
+        "0xd32345b9F2FdA5Cff0647BB7B23DED8B0F7DD4D1",
+        "0x55842e4A75E05FfFe9b7CCFe29246ea6E5c0d37D",
+        "0x5680CB32405b196F421eEB731d4cFe78083f4C86",
+        "0x5a37A5616Dd755B64d18D8d2F7c03AF6CcA1A055"
+      ],
+      "ownershipStatus": "HODL",
+      "ownershipBasis": "mint_wallet",
+      "marketplaceEvidence": null,
+      "matchedAddress": "0x27629B5d175E899a19eD6B3a96016377d5eE4768",
+      "matchType": "verified",
+      "voteOwner": "0xBcDA9Da41f883DE0Ba16A8608d0de29FaFf40410",
+      "proofs": {
+        "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/481",
+        "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/6090",
+        "farcasterProfile": "https://farcaster.xyz/simmons"
+      }
+    },
+    {
       "fid": 6162,
       "username": "typeof.eth",
       "displayName": "typeof.eth",
@@ -4777,7 +4807,7 @@
       "fid": 10810,
       "username": "gami",
       "displayName": "Gami",
-      "pfpUrl": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/3256c476-8702-4258-8f7e-c66a4fbd2700/original",
+      "pfpUrl": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/09da9c7a-7630-434d-68df-28d044de1900/original",
       "ogTokenId": 632,
       "mintWallet": "0x387a161C6b25aA854100aBaED39274e51aaffffd",
       "currentOwner": "0x1362cEE4Ecff5bC89f53Ed4E7542644BF64b4B07",
@@ -6292,6 +6322,40 @@
         "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/776",
         "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/15635",
         "farcasterProfile": "https://farcaster.xyz/gayu0105"
+      }
+    },
+    {
+      "fid": 15639,
+      "username": "bahar73",
+      "displayName": "Bahar 🎩 🐹",
+      "pfpUrl": null,
+      "ogTokenId": 777,
+      "mintWallet": "0xcf51740B13156B8C16c1728E0aBf064bD1D1e088",
+      "currentOwner": "0xDfa7777507F7Ba68AA42192d714F747F77C07F97",
+      "custodyAddress": "0x4102E83602B94D49593A508C5AcD18926DAEc823",
+      "accountWallets": [
+        "0xcf51740B13156B8C16c1728E0aBf064bD1D1e088",
+        "0x4102E83602B94D49593A508C5AcD18926DAEc823",
+        "0xff8266187cE6f9b624Cdf5e427d9a4E006b47925",
+        "0x9Fa6635f2c4366BDb4318cdffA898C95C23B8841"
+      ],
+      "ownershipStatus": "SOLD",
+      "ownershipBasis": "external_wallet",
+      "marketplaceEvidence": {
+        "marketplace": "Seaport",
+        "protocol": "SEAPORT",
+        "transactionHash": "0xa422fc5dc92cd723ab9106f4e24ee560a249e30094c257adccf691df344f28c4",
+        "contract": "0x00000000000000adc04c56bf30ac9d3c0aaf14dc",
+        "orderHash": "0x5df41325097c245ddcab3a1964d9d76f0fb2604efabb5646fb1c6ed9b639f0ec",
+        "proofUrl": "https://explorer.zora.energy/tx/0xa422fc5dc92cd723ab9106f4e24ee560a249e30094c257adccf691df344f28c4"
+      },
+      "matchedAddress": "0xcf51740B13156B8C16c1728E0aBf064bD1D1e088",
+      "matchType": "verified",
+      "voteOwner": "0xff8266187cE6f9b624Cdf5e427d9a4E006b47925",
+      "proofs": {
+        "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/777",
+        "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/15639",
+        "farcasterProfile": "https://farcaster.xyz/bahar73"
       }
     },
     {
