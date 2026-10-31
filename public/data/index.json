@@ -1,13 +1,13 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-10-30T10:53:38.449Z",
+  "generatedAt": "2026-10-31T10:25:45.926Z",
   "meta": {
     "ogSupply": 938,
     "ogAtMintWallet": 491,
     "ogMovedFromMintWallet": 447,
     "resolvedIdentities": 805,
-    "signedCount": 254,
-    "signedHodl": 130,
+    "signedCount": 255,
+    "signedHodl": 131,
     "signedSold": 111,
     "signedMoved": 13,
     "identityScanMaxFid": 22000,
@@ -3163,6 +3163,33 @@
         "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/401",
         "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/4612",
         "farcasterProfile": "https://farcaster.xyz/swabbie.eth"
+      }
+    },
+    {
+      "fid": 4665,
+      "username": "brittkim.eth",
+      "displayName": "britt",
+      "pfpUrl": null,
+      "ogTokenId": 403,
+      "mintWallet": "0xa01258F7c15eE825fb2dc67DB273EDc89621268A",
+      "currentOwner": "0xa01258F7c15eE825fb2dc67DB273EDc89621268A",
+      "custodyAddress": "0xCfA0c9DD163ee5ff5B0F1c68A6AcCc42745F04c3",
+      "accountWallets": [
+        "0xa01258F7c15eE825fb2dc67DB273EDc89621268A",
+        "0xCfA0c9DD163ee5ff5B0F1c68A6AcCc42745F04c3",
+        "0x345ab03602369dD0b443B9B0A5dF54DB7BfF708B",
+        "0xEDD24A5802596530bE67eB841bE154B641078B0C"
+      ],
+      "ownershipStatus": "HODL",
+      "ownershipBasis": "mint_wallet",
+      "marketplaceEvidence": null,
+      "matchedAddress": "0xa01258F7c15eE825fb2dc67DB273EDc89621268A",
+      "matchType": "verified",
+      "voteOwner": "0xEDD24A5802596530bE67eB841bE154B641078B0C",
+      "proofs": {
+        "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/403",
+        "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/4665",
+        "farcasterProfile": "https://farcaster.xyz/brittkim.eth"
       }
     },
     {
