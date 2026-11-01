@@ -1,15 +1,15 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-10-31T10:25:45.926Z",
+  "generatedAt": "2026-11-01T11:19:20.783Z",
   "meta": {
     "ogSupply": 938,
     "ogAtMintWallet": 491,
     "ogMovedFromMintWallet": 447,
     "resolvedIdentities": 805,
-    "signedCount": 255,
-    "signedHodl": 131,
+    "signedCount": 257,
+    "signedHodl": 132,
     "signedSold": 111,
-    "signedMoved": 13,
+    "signedMoved": 14,
     "identityScanMaxFid": 22000,
     "complete": false,
     "note": "SOLD requires token-level payment evidence in a canonical Seaport settlement. MOVED means the OG is outside the account wallet set without that sale evidence."
@@ -2184,6 +2184,33 @@
       }
     },
     {
+      "fid": 2252,
+      "username": "sui",
+      "displayName": "Sui",
+      "pfpUrl": "https://res.cloudinary.com/base-app/image/upload/f_auto/v1762013518/warplet-2252.png.png",
+      "ogTokenId": 271,
+      "mintWallet": "0x09765E9D82B019eB0Bfe91Cbe2e472aAB9a142a8",
+      "currentOwner": "0x09765E9D82B019eB0Bfe91Cbe2e472aAB9a142a8",
+      "custodyAddress": "0xAF82c0220bd5e11182aC1EE3A504f4045BBebc6d",
+      "accountWallets": [
+        "0x09765E9D82B019eB0Bfe91Cbe2e472aAB9a142a8",
+        "0xAF82c0220bd5e11182aC1EE3A504f4045BBebc6d",
+        "0x274044b354d5010dE0dbdefdc58B9e689F3607ba",
+        "0x70a8283A2209b3F4E8C93639D94724b905e1b612"
+      ],
+      "ownershipStatus": "HODL",
+      "ownershipBasis": "mint_wallet",
+      "marketplaceEvidence": null,
+      "matchedAddress": "0x09765E9D82B019eB0Bfe91Cbe2e472aAB9a142a8",
+      "matchType": "verified",
+      "voteOwner": "0x274044b354d5010dE0dbdefdc58B9e689F3607ba",
+      "proofs": {
+        "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/271",
+        "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/2252",
+        "farcasterProfile": "https://farcaster.xyz/sui"
+      }
+    },
+    {
       "fid": 2266,
       "username": "ripe",
       "displayName": "ripe",
@@ -2246,6 +2273,34 @@
         "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/276",
         "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/2282",
         "farcasterProfile": "https://farcaster.xyz/gokhan"
+      }
+    },
+    {
+      "fid": 2329,
+      "username": "veekay",
+      "displayName": "veekay",
+      "pfpUrl": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/f651da9a-cdd0-49df-0f50-17765693ec00/original",
+      "ogTokenId": 279,
+      "mintWallet": "0x947Caf5AdA865ACE0c8de0ffD55de0C02E5F6B54",
+      "currentOwner": "0x17F07098B8811a7c065D56787002f6F8CbAB2283",
+      "custodyAddress": "0x1A94e90bC4CE76B347E922baA64231a289ea563a",
+      "accountWallets": [
+        "0x947Caf5AdA865ACE0c8de0ffD55de0C02E5F6B54",
+        "0x1A94e90bC4CE76B347E922baA64231a289ea563a",
+        "0x8441FA93a8F2E372AbA8A9F94F9dd78e9fB7EA36",
+        "0x3944Cc1A70c4bE8Ad75f456ba0AB525B02aD827A",
+        "0x77F13074EAb167b9CB708222Ff2175b120b4Ca4C"
+      ],
+      "ownershipStatus": "MOVED",
+      "ownershipBasis": "external_wallet",
+      "marketplaceEvidence": null,
+      "matchedAddress": "0x947Caf5AdA865ACE0c8de0ffD55de0C02E5F6B54",
+      "matchType": "verified",
+      "voteOwner": "0x3944Cc1A70c4bE8Ad75f456ba0AB525B02aD827A",
+      "proofs": {
+        "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/279",
+        "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/2329",
+        "farcasterProfile": "https://farcaster.xyz/veekay"
       }
     },
     {
