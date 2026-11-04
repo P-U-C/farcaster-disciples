@@ -1,14 +1,14 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-11-03T11:58:43.678Z",
+  "generatedAt": "2026-11-04T12:12:51.138Z",
   "meta": {
     "ogSupply": 938,
     "ogAtMintWallet": 491,
     "ogMovedFromMintWallet": 447,
     "resolvedIdentities": 805,
-    "signedCount": 257,
-    "signedHodl": 132,
-    "signedSold": 111,
+    "signedCount": 259,
+    "signedHodl": 133,
+    "signedSold": 112,
     "signedMoved": 14,
     "identityScanMaxFid": 22000,
     "complete": false,
@@ -2768,8 +2768,8 @@
     {
       "fid": 3642,
       "username": "toadyhawk.eth",
-      "displayName": "Toady Hawk",
-      "pfpUrl": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/6925ce3a-8373-40bc-5ed1-b552db2c3000/original",
+      "displayName": "Toady Hawk (clanker intern arc)",
+      "pfpUrl": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/41f6f341-4eab-450a-daa1-d84dc12c9300/original",
       "ogTokenId": 348,
       "mintWallet": "0x5D802e2Fe48392c104Ce0401C7ECa8a4456f1F16",
       "currentOwner": "0x09B5f916f8EAD654D3a8459627829efaa7e0F5CF",
@@ -7357,6 +7357,40 @@
       }
     },
     {
+      "fid": 19190,
+      "username": "masihahisen",
+      "displayName": "Msi.base.eth ↑🎩🧀🔵🐹",
+      "pfpUrl": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/8687a4b1-9901-46e9-0388-5a7cd4f8e300/original",
+      "ogTokenId": 850,
+      "mintWallet": "0x2EB2478559a8C62A32323b14B4f9318223729b66",
+      "currentOwner": "0x7F63921D9faC69a6824dd3Ef5fB8E1A89fcc984D",
+      "custodyAddress": "0xb892bbd91aAd9513e7c6d7b1ec4EcAE057Db10C9",
+      "accountWallets": [
+        "0x2EB2478559a8C62A32323b14B4f9318223729b66",
+        "0xb892bbd91aAd9513e7c6d7b1ec4EcAE057Db10C9",
+        "0x80e76fE5C1340430C0198CD6abD6966F3f0110D7",
+        "0x4802606235B7eAa16Cf8143348daae808bF44d59"
+      ],
+      "ownershipStatus": "SOLD",
+      "ownershipBasis": "external_wallet",
+      "marketplaceEvidence": {
+        "marketplace": "Seaport",
+        "protocol": "SEAPORT",
+        "transactionHash": "0x5e2f1c83e9f118ca642ad5cd9c3d76d4d2dd9b961063b0e33ad5c86a1775cf59",
+        "contract": "0x0000000000000068f116a894984e2db1123eb395",
+        "orderHash": "0x9089d94ec03ed87ab2f47ea7dee4e00019799df19ab995bb126cd1d71711c577",
+        "proofUrl": "https://explorer.zora.energy/tx/0x5e2f1c83e9f118ca642ad5cd9c3d76d4d2dd9b961063b0e33ad5c86a1775cf59"
+      },
+      "matchedAddress": "0x2EB2478559a8C62A32323b14B4f9318223729b66",
+      "matchType": "verified",
+      "voteOwner": "0x80e76fE5C1340430C0198CD6abD6966F3f0110D7",
+      "proofs": {
+        "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/850",
+        "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/19190",
+        "farcasterProfile": "https://farcaster.xyz/masihahisen"
+      }
+    },
+    {
       "fid": 19203,
       "username": "jackryann.eth",
       "displayName": "Jackryann1j",
@@ -7803,6 +7837,32 @@
         "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/934",
         "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/13094",
         "farcasterProfile": "https://farcaster.xyz/thecap.eth"
+      }
+    },
+    {
+      "fid": 13478,
+      "username": "mnsis.eth",
+      "displayName": "Mohsin",
+      "pfpUrl": null,
+      "ogTokenId": 935,
+      "mintWallet": "0x0882483Be2B9135fbcf325b929b0d5AF7854B7bd",
+      "currentOwner": "0x0882483Be2B9135fbcf325b929b0d5AF7854B7bd",
+      "custodyAddress": "0x56812DD02fA0e85A60CcA69c511A3c4afDA57E24",
+      "accountWallets": [
+        "0x0882483Be2B9135fbcf325b929b0d5AF7854B7bd",
+        "0x56812DD02fA0e85A60CcA69c511A3c4afDA57E24",
+        "0x9183Ac49D7A89Aca15425C8e02DcC8d8cf6f2dEE"
+      ],
+      "ownershipStatus": "HODL",
+      "ownershipBasis": "mint_wallet",
+      "marketplaceEvidence": null,
+      "matchedAddress": "0x0882483Be2B9135fbcf325b929b0d5AF7854B7bd",
+      "matchType": "verified",
+      "voteOwner": "0x9183Ac49D7A89Aca15425C8e02DcC8d8cf6f2dEE",
+      "proofs": {
+        "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/935",
+        "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/13478",
+        "farcasterProfile": "https://farcaster.xyz/mnsis.eth"
       }
     },
     {
