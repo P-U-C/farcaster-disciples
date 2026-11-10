@@ -1,13 +1,13 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-11-09T12:56:18.431Z",
+  "generatedAt": "2026-11-10T12:42:26.956Z",
   "meta": {
     "ogSupply": 938,
     "ogAtMintWallet": 491,
     "ogMovedFromMintWallet": 447,
     "resolvedIdentities": 804,
-    "signedCount": 260,
-    "signedHodl": 134,
+    "signedCount": 261,
+    "signedHodl": 135,
     "signedSold": 113,
     "signedMoved": 13,
     "identityScanMaxFid": 22000,
@@ -4374,7 +4374,7 @@
       "fid": 7909,
       "username": "jonnyringo.eth",
       "displayName": "Jon \"JonnyRingo\" Williams",
-      "pfpUrl": null,
+      "pfpUrl": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/9681e8da-8a77-42ee-286d-8a07dd300400/original",
       "ogTokenId": 544,
       "mintWallet": "0xb386c139442a81a482424F11214E70625A2c7109",
       "currentOwner": "0xdDe6BE6BF4E5055b441C7A25BAb7FcAF03283491",
@@ -4585,7 +4585,7 @@
       "fid": 8573,
       "username": "epicdylan",
       "displayName": "Dylan",
-      "pfpUrl": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/8cd7c0b4-4109-4467-8a64-8680c4ba4e00/original",
+      "pfpUrl": null,
       "ogTokenId": 570,
       "mintWallet": "0x2ae9B5d66D83419dbc33696c9F126ff11De75b99",
       "currentOwner": "0xd4Eab0483ACCAAA1A05A245F3d3a2F36F96F952A",
@@ -5015,7 +5015,7 @@
       "fid": 10810,
       "username": "gami",
       "displayName": "Gami",
-      "pfpUrl": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/09da9c7a-7630-434d-68df-28d044de1900/original",
+      "pfpUrl": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/018cbcda-cc72-4d54-376a-538858ba2800/original",
       "ogTokenId": 632,
       "mintWallet": "0x387a161C6b25aA854100aBaED39274e51aaffffd",
       "currentOwner": "0x1362cEE4Ecff5bC89f53Ed4E7542644BF64b4B07",
@@ -6260,6 +6260,32 @@
         "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/746",
         "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/14461",
         "farcasterProfile": "https://farcaster.xyz/crypto30724"
+      }
+    },
+    {
+      "fid": 14496,
+      "username": "vkcs",
+      "displayName": "Varun Kumar",
+      "pfpUrl": null,
+      "ogTokenId": 748,
+      "mintWallet": "0x2F526AaBA4d27eEDc11564EB2113C803b76D5F80",
+      "currentOwner": "0x2F526AaBA4d27eEDc11564EB2113C803b76D5F80",
+      "custodyAddress": "0x863314F4eD4A4a75a1eA986fF5Ef54cd327688FC",
+      "accountWallets": [
+        "0x2F526AaBA4d27eEDc11564EB2113C803b76D5F80",
+        "0x863314F4eD4A4a75a1eA986fF5Ef54cd327688FC",
+        "0x5C13C7Ba95A909708cF07AC81eF1CC75Bbe96C88"
+      ],
+      "ownershipStatus": "HODL",
+      "ownershipBasis": "mint_wallet",
+      "marketplaceEvidence": null,
+      "matchedAddress": "0x2F526AaBA4d27eEDc11564EB2113C803b76D5F80",
+      "matchType": "verified",
+      "voteOwner": "0x5C13C7Ba95A909708cF07AC81eF1CC75Bbe96C88",
+      "proofs": {
+        "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/748",
+        "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/14496",
+        "farcasterProfile": "https://farcaster.xyz/vkcs"
       }
     },
     {
