@@ -1,14 +1,14 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-11-11T11:55:19.193Z",
+  "generatedAt": "2026-11-12T12:47:46.204Z",
   "meta": {
     "ogSupply": 938,
     "ogAtMintWallet": 491,
     "ogMovedFromMintWallet": 447,
     "resolvedIdentities": 804,
-    "signedCount": 261,
+    "signedCount": 262,
     "signedHodl": 135,
-    "signedSold": 113,
+    "signedSold": 114,
     "signedMoved": 13,
     "identityScanMaxFid": 22000,
     "complete": false,
@@ -2997,6 +2997,39 @@
       }
     },
     {
+      "fid": 4134,
+      "username": "andreitr.eth",
+      "displayName": "andrei",
+      "pfpUrl": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/1051a526-e190-4f16-8443-ccfd04867100/original",
+      "ogTokenId": 373,
+      "mintWallet": "0x1d671d1B191323A38490972D58354971E5c1cd2A",
+      "currentOwner": "0x1580bD72153a0d87A0d3D6560d6bE11D9C8733e5",
+      "custodyAddress": "0xB80e0fBD6eEE719843e5D98f61525d0aED4A2404",
+      "accountWallets": [
+        "0x1d671d1B191323A38490972D58354971E5c1cd2A",
+        "0xB80e0fBD6eEE719843e5D98f61525d0aED4A2404",
+        "0x376B90EEacE869d313Cc427E6B3942789aa24178"
+      ],
+      "ownershipStatus": "SOLD",
+      "ownershipBasis": "external_wallet",
+      "marketplaceEvidence": {
+        "marketplace": "Seaport",
+        "protocol": "SEAPORT",
+        "transactionHash": "0xdb42314e28bf0fb5befc7f72b1afe54c0541960712bfbc210b234679ef2cba10",
+        "contract": "0x0000000000000068f116a894984e2db1123eb395",
+        "orderHash": "0x27ffb16f6bfc1f32234a2715ffddb619ba8da6bc176c0ae4d91bd8f79c2da550",
+        "proofUrl": "https://explorer.zora.energy/tx/0xdb42314e28bf0fb5befc7f72b1afe54c0541960712bfbc210b234679ef2cba10"
+      },
+      "matchedAddress": "0x1d671d1B191323A38490972D58354971E5c1cd2A",
+      "matchType": "verified",
+      "voteOwner": "0x376B90EEacE869d313Cc427E6B3942789aa24178",
+      "proofs": {
+        "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/373",
+        "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/4134",
+        "farcasterProfile": "https://farcaster.xyz/andreitr.eth"
+      }
+    },
+    {
       "fid": 4152,
       "username": "verymehari",
       "displayName": "Kiru",
@@ -5015,7 +5048,7 @@
       "fid": 10810,
       "username": "gami",
       "displayName": "Gami",
-      "pfpUrl": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/0a05e2b0-2da3-4510-a200-481a574e9100/original",
+      "pfpUrl": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/8521283c-da15-4ebc-3fd5-476b74d80400/original",
       "ogTokenId": 632,
       "mintWallet": "0x387a161C6b25aA854100aBaED39274e51aaffffd",
       "currentOwner": "0x1362cEE4Ecff5bC89f53Ed4E7542644BF64b4B07",
