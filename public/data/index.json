@@ -1,13 +1,13 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-11-12T12:47:46.204Z",
+  "generatedAt": "2026-11-13T12:16:59.157Z",
   "meta": {
     "ogSupply": 938,
     "ogAtMintWallet": 491,
     "ogMovedFromMintWallet": 447,
     "resolvedIdentities": 804,
-    "signedCount": 262,
-    "signedHodl": 135,
+    "signedCount": 263,
+    "signedHodl": 136,
     "signedSold": 114,
     "signedMoved": 13,
     "identityScanMaxFid": 22000,
@@ -110,6 +110,33 @@
         "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/5",
         "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/12",
         "farcasterProfile": "https://farcaster.xyz/linda"
+      }
+    },
+    {
+      "fid": 17,
+      "username": "sds",
+      "displayName": "Shane da Silva",
+      "pfpUrl": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/cfecdddf-d040-4fce-2c81-0d367f678300/original",
+      "ogTokenId": 6,
+      "mintWallet": "0x9d363Fc4bc4d94C135D004f84CA5A44643fFB816",
+      "currentOwner": "0x9d363Fc4bc4d94C135D004f84CA5A44643fFB816",
+      "custodyAddress": "0xF4C5A483B81C5f57a56d48161Db68e1b4a3F3D6E",
+      "accountWallets": [
+        "0x9d363Fc4bc4d94C135D004f84CA5A44643fFB816",
+        "0xF4C5A483B81C5f57a56d48161Db68e1b4a3F3D6E",
+        "0x73526226A883D78b81ad98981767ae00B629Fb48",
+        "0x4007B2145fbF259CF81948EE6e8f4748F19997e8"
+      ],
+      "ownershipStatus": "HODL",
+      "ownershipBasis": "mint_wallet",
+      "marketplaceEvidence": null,
+      "matchedAddress": "0x9d363Fc4bc4d94C135D004f84CA5A44643fFB816",
+      "matchType": "verified",
+      "voteOwner": "0x4007B2145fbF259CF81948EE6e8f4748F19997e8",
+      "proofs": {
+        "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/6",
+        "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/17",
+        "farcasterProfile": "https://farcaster.xyz/sds"
       }
     },
     {
