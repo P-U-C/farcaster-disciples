@@ -1,13 +1,13 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-11-13T12:16:59.157Z",
+  "generatedAt": "2026-11-14T11:32:46.805Z",
   "meta": {
     "ogSupply": 938,
     "ogAtMintWallet": 491,
     "ogMovedFromMintWallet": 447,
     "resolvedIdentities": 804,
-    "signedCount": 263,
-    "signedHodl": 136,
+    "signedCount": 264,
+    "signedHodl": 137,
     "signedSold": 114,
     "signedMoved": 13,
     "identityScanMaxFid": 22000,
@@ -4639,6 +4639,33 @@
         "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/567",
         "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/8481",
         "farcasterProfile": "https://farcaster.xyz/yar0x"
+      }
+    },
+    {
+      "fid": 8555,
+      "username": "thethriller",
+      "displayName": "TheThriller 🎩 Adam Miller",
+      "pfpUrl": null,
+      "ogTokenId": 568,
+      "mintWallet": "0xA9fA105CC800137B8BC9E7bD34d26460E1E77b9A",
+      "currentOwner": "0xA9fA105CC800137B8BC9E7bD34d26460E1E77b9A",
+      "custodyAddress": "0x341f97BD6EA1E8B23d11087F786dC71Dfe055b4D",
+      "accountWallets": [
+        "0xA9fA105CC800137B8BC9E7bD34d26460E1E77b9A",
+        "0x341f97BD6EA1E8B23d11087F786dC71Dfe055b4D",
+        "0x797eEBADFAEe52aCC88A82C148B0D6005AC0d24C",
+        "0x878D319864f86AaB571446d8137CE565EaDdaD87"
+      ],
+      "ownershipStatus": "HODL",
+      "ownershipBasis": "mint_wallet",
+      "marketplaceEvidence": null,
+      "matchedAddress": "0xA9fA105CC800137B8BC9E7bD34d26460E1E77b9A",
+      "matchType": "verified",
+      "voteOwner": "0x797eEBADFAEe52aCC88A82C148B0D6005AC0d24C",
+      "proofs": {
+        "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/568",
+        "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/8555",
+        "farcasterProfile": "https://farcaster.xyz/thethriller"
       }
     },
     {
