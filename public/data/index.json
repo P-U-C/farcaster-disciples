@@ -1,14 +1,14 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-11-20T12:58:28.206Z",
+  "generatedAt": "2026-11-21T12:42:39.259Z",
   "meta": {
     "ogSupply": 938,
     "ogAtMintWallet": 491,
     "ogMovedFromMintWallet": 447,
     "resolvedIdentities": 804,
-    "signedCount": 268,
+    "signedCount": 269,
     "signedHodl": 139,
-    "signedSold": 116,
+    "signedSold": 117,
     "signedMoved": 13,
     "identityScanMaxFid": 22000,
     "complete": false,
@@ -3121,6 +3121,39 @@
         "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/375",
         "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/4152",
         "farcasterProfile": "https://farcaster.xyz/verymehari"
+      }
+    },
+    {
+      "fid": 4166,
+      "username": "techspec",
+      "displayName": "Jeremy Karl",
+      "pfpUrl": null,
+      "ogTokenId": 377,
+      "mintWallet": "0xeA3246957e3548fAdf56301Af6e020Fa288AF8BA",
+      "currentOwner": "0xF1B6df8Bf25Fe65545520343CE8BB3413509A5E1",
+      "custodyAddress": "0x3038a5Ac0dBac242947c6aba13A1215230882A56",
+      "accountWallets": [
+        "0xeA3246957e3548fAdf56301Af6e020Fa288AF8BA",
+        "0x3038a5Ac0dBac242947c6aba13A1215230882A56",
+        "0xD60D564Fd6AF1d0E1B437f0dA1E6Ea2d7cb82444"
+      ],
+      "ownershipStatus": "SOLD",
+      "ownershipBasis": "external_wallet",
+      "marketplaceEvidence": {
+        "marketplace": "Seaport",
+        "protocol": "SEAPORT",
+        "transactionHash": "0xf24f4449114e885e0657da1983940861cbdf68b617275ca57228f640d50b015d",
+        "contract": "0x00000000000000adc04c56bf30ac9d3c0aaf14dc",
+        "orderHash": "0x20df117b7531e8f973fb9b1bb4f8240e83690ca2a0f9246eb85c18b3de55e467",
+        "proofUrl": "https://explorer.zora.energy/tx/0xf24f4449114e885e0657da1983940861cbdf68b617275ca57228f640d50b015d"
+      },
+      "matchedAddress": "0xeA3246957e3548fAdf56301Af6e020Fa288AF8BA",
+      "matchType": "verified",
+      "voteOwner": "0xD60D564Fd6AF1d0E1B437f0dA1E6Ea2d7cb82444",
+      "proofs": {
+        "ogToken": "https://opensea.io/assets/zora/0xe03ef4b9db1a47464de84fb476f9baf493b3e886/377",
+        "pledgeToken": "https://basescan.org/nft/0x4ecfEd276c566AeB49Da1f3A888E8Dbb7263028D/4166",
+        "farcasterProfile": "https://farcaster.xyz/techspec"
       }
     },
     {
